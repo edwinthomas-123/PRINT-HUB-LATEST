@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PrintHub AS SOFTWARE APP</title>
+    <meta name="description" content="Print Anywhere. Pick Up Anywhere. Upload files and order prints at local print shops." />
+    <meta property="og:title" content="PrintHub AS SOFTWARE APP" />
+    <meta property="og:description" content="Print Anywhere. Pick Up Anywhere. Upload files and order prints at local print shops." />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#4f46e5" />
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(reg => console.log('ServiceWorker registered:', reg.scope))
+            .catch(err => console.error('ServiceWorker registration failed:', err));
+        });
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

@@ -1,0 +1,47 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Shops collection:
+    // Anyone can read shops (for search and scanning QR code).
+    // Only the authenticated owner can write to their own shop (matching user.uid).
+    match /shops/{shopId} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == shopId;
+    }
+
+    // Orders collection:
+    // Anyone can read an order if they know its ID (for track page).
+    // Guest customers can create orders without login (instant print-and-go).
+    // Shop partners can update orders (status updates: Printing, Completed, Rejected).
+    match /orders/{orderId} {
+      allow read: if true;
+      allow create: if true;
+      allow update: if (request.auth != null && (
+        request.auth.uid == request.resource.data.shopId ||
+        request.auth.uid == resource.data.shopId ||
+        request.auth.uid == request.resource.data.customerId ||
+        request.auth.uid == resource.data.customerId
+      )) || (
+        // Allow customer to update status (e.g. Cancelled if still Waiting)
+        resource.data.status == 'Waiting'
+      );
+      allow delete: if request.auth != null && (
+        request.auth.uid == resource.data.shopId ||
+        request.auth.uid == resource.data.customerId
+      );
+    }
+
+    // Users collection:
+    // Anyone can read profiles (e.g. guest checking track status/cover, shop owner checking customer details).
+    // Only the profile owner can write to their own profile.
+    match /users/{userId} {
+      allow read: if true;
+      allow write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Default catch-all
+    match /{document=**} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}

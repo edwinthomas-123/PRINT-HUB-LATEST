@@ -1,0 +1,10 @@
+{
+  "name": " PrintHub AS SOFTWARE APP",
+  "description": "Print Anywhere. Pick Up Anywhere. Upload files and order prints at local print shops.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "entities": {
+    "Shop": {
+      "title": "Shop",
+      "description": "A print shop",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "ownerId": { "type": "string" }
+      }
+    },
+    "User": {
+      "title": "User",
+      "description": "A user",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" }
+      }
+    },
+    "Order": {
+      "title": "Order",
+      "description": "A print order placed by a customer",
+      "type": "object",
+      "properties": {
+        "shopId": { "type": "string" },
+        "customerId": { "type": "string" },
+        "status": { "type": "string" },
+        "price": { "type": "number" },
+        "token": { "type": "string" },
+        "createdAt": { "type": "number" }
+      },
+      "required": ["shopId", "status", "price", "token", "createdAt"]
+    }
+  },
+  "firestore": {
+    "shops/{shopId}": {
+      "schema": "Shop",
+      "description": "Shops"
+    },
+    "users/{userId}": {
+      "schema": "User",
+      "description": "Users"
+    },
+    "orders/{orderId}": {
+      "schema": "Order",
+      "description": "Print orders"
+    }
+  }
+}

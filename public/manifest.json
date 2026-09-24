@@ -1,0 +1,9 @@
+{
+  "short_name": "PrintHub",
+  "name": "PrintHub - Print Anywhere, Pick Up Anywhere",
+  "icons": [],
+  "start_url": "/",
+  "background_color": "#ffffff",
+  "theme_color": "#4f46e5",
+  "display": "standalone"
+}
