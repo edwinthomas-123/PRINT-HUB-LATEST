@@ -229,25 +229,25 @@ export function Profile({ user }: { user: User | null }) {
     <div className="max-w-4xl mx-auto space-y-8 pb-16">
       {/* Profile Header */}
       <div className="grid grid-cols-1 gap-4">
-        <div className="flex flex-col sm:flex-row items-center justify-between bg-white p-6 rounded-2xl shadow-sm border border-slate-150 gap-4">
+        <div className="flex flex-col sm:flex-row items-center justify-between bg-white p-6 sm:p-7 rounded-3xl shadow-xs border border-slate-200/80 gap-4">
           <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
             <img 
               src={user.photoURL || `https://api.dicebear.com/7.x/initials/svg?seed=${user.displayName || 'User'}`} 
               referrerPolicy="no-referrer"
               alt="Profile" 
-              className="w-16 h-16 rounded-full bg-slate-100 border-2 border-indigo-100 shadow-sm object-cover" 
+              className="w-16 h-16 rounded-2xl bg-slate-100 border-2 border-indigo-100 shadow-xs object-cover" 
             />
             <div>
-              <h1 className="text-xl font-bold text-slate-900">{user.displayName}</h1>
-              <p className="text-sm text-slate-500">{user.email}</p>
-              <div className="mt-1 inline-flex items-center gap-1.5 bg-indigo-50 text-indigo-700 text-xs px-2.5 py-0.5 rounded-full font-medium">
+              <h1 className="text-xl font-black text-slate-900 tracking-tight">{user.displayName}</h1>
+              <p className="text-xs sm:text-sm text-slate-500">{user.email}</p>
+              <div className="mt-1.5 inline-flex items-center gap-1.5 bg-indigo-50 border border-indigo-200/60 text-indigo-700 text-xs px-2.5 py-0.5 rounded-full font-bold">
                 <Sparkles className="w-3.5 h-3.5" /> Customer Account
               </div>
             </div>
           </div>
           <button 
             onClick={logOut} 
-            className="flex items-center gap-2 text-slate-600 hover:text-red-600 hover:bg-red-50 px-4 py-2 rounded-xl transition text-sm font-medium border border-slate-200 hover:border-red-100"
+            className="flex items-center gap-2 text-slate-600 hover:text-rose-600 hover:bg-rose-50 px-4 py-2 rounded-xl transition-colors text-xs sm:text-sm font-semibold border border-slate-200 hover:border-rose-200 cursor-pointer"
           >
             <LogOut className="w-4 h-4" /> Sign Out
           </button>
@@ -255,15 +255,15 @@ export function Profile({ user }: { user: User | null }) {
       </div>
 
       {/* Tabs */}
-      <div className="flex border-b border-slate-200 gap-6 px-2">
+      <div className="flex border-b border-slate-200/80 gap-6 px-2">
          <button 
-           className={`pb-3 text-sm font-semibold transition ${activeTab === 'orders' ? 'text-indigo-600 border-b-2 border-indigo-600' : 'text-slate-500 hover:text-slate-800'}`}
+           className={`pb-3 text-sm font-bold transition cursor-pointer ${activeTab === 'orders' ? 'text-indigo-600 border-b-2 border-indigo-600' : 'text-slate-500 hover:text-slate-800'}`}
            onClick={() => setActiveTab('orders')}
          >
            My Orders
          </button>
          <button 
-           className={`pb-3 text-sm font-semibold transition ${activeTab === 'files' ? 'text-indigo-600 border-b-2 border-indigo-600' : 'text-slate-500 hover:text-slate-800'}`}
+           className={`pb-3 text-sm font-bold transition cursor-pointer ${activeTab === 'files' ? 'text-indigo-600 border-b-2 border-indigo-600' : 'text-slate-500 hover:text-slate-800'}`}
            onClick={() => setActiveTab('files')}
          >
            Your Files
@@ -274,8 +274,8 @@ export function Profile({ user }: { user: User | null }) {
       <div>
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-6">
           <div>
-            <h2 className="text-lg font-bold text-slate-900">Your Print Orders</h2>
-            <p className="text-xs text-slate-500">Track and manage your document prints</p>
+            <h2 className="text-lg font-black text-slate-900 tracking-tight">Your Print Orders</h2>
+            <p className="text-xs text-slate-500 mt-0.5">Track and manage your document prints</p>
           </div>
           
           <div className="flex flex-wrap gap-2">
@@ -283,10 +283,10 @@ export function Profile({ user }: { user: User | null }) {
               <button
                 key={filter}
                 onClick={() => setStatusFilter(filter)}
-                className={`px-3 py-1.5 text-xs font-semibold rounded-xl border transition ${
+                className={`px-3 py-1.5 text-xs font-semibold rounded-xl border transition cursor-pointer ${
                   statusFilter === filter
-                    ? 'bg-slate-900 text-white border-slate-900'
-                    : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50'
+                    ? 'bg-slate-900 text-white border-slate-900 shadow-xs'
+                    : 'bg-white text-slate-600 border-slate-200/80 hover:bg-slate-50'
                 }`}
               >
                 {filter}
@@ -304,15 +304,15 @@ export function Profile({ user }: { user: User | null }) {
               placeholder="Search by file, shop name or pickup token..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 text-sm bg-white border border-slate-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-900"
+              className="w-full pl-10 pr-4 py-2 text-xs sm:text-sm bg-white border border-slate-200/80 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 shadow-2xs"
             />
           </div>
           <div className="relative">
-            <Filter className="absolute left-3 top-2.5 h-4.5 w-4.5 text-slate-400" />
+            <Filter className="absolute left-3 top-2.5 h-4.5 w-4.5 text-slate-400 pointer-events-none" />
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 text-sm bg-white border border-slate-200 rounded-xl appearance-none focus:outline-none focus:ring-2 focus:ring-slate-900 cursor-pointer"
+              className="w-full pl-10 pr-4 py-2 text-xs sm:text-sm bg-white border border-slate-200/80 rounded-xl appearance-none focus:outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 cursor-pointer shadow-2xs"
             >
               <option value="All">All Statuses</option>
               <option value="Uploaded">Uploaded</option>
@@ -328,15 +328,15 @@ export function Profile({ user }: { user: User | null }) {
 
         {/* Loader or Order List */}
         {loading ? (
-          <div className="flex flex-col items-center justify-center py-16 bg-white rounded-2xl border border-slate-150 shadow-sm">
+          <div className="flex flex-col items-center justify-center py-16 bg-white rounded-3xl border border-slate-200/80 shadow-xs">
             <Printer className="animate-bounce text-indigo-500 w-10 h-10 mb-3" />
-            <p className="text-sm text-slate-500">Fetching order history...</p>
+            <p className="text-sm font-medium text-slate-500">Fetching order history...</p>
           </div>
         ) : filteredOrders.length === 0 ? (
-          <div className="text-center py-12 bg-white rounded-2xl border border-dashed border-slate-200 p-8">
+          <div className="text-center py-12 bg-white rounded-3xl border border-dashed border-slate-200/80 p-8 shadow-xs">
             <FileText className="mx-auto text-slate-300 w-12 h-12 mb-3" />
-            <h3 className="text-sm font-semibold text-slate-900">No print orders found</h3>
-            <p className="text-xs text-slate-500 mt-1 max-w-sm mx-auto">
+            <h3 className="text-sm font-bold text-slate-900">No print orders found</h3>
+            <p className="text-xs text-slate-500 mt-1 max-w-sm mx-auto leading-relaxed">
               {orders.length === 0 
                 ? "You haven't uploaded any documents or placed any orders yet." 
                 : "Try adjusting your search query or status filter to find your order."}
@@ -344,7 +344,7 @@ export function Profile({ user }: { user: User | null }) {
             {orders.length === 0 && (
               <Link 
                 to="/" 
-                className="mt-4 inline-flex items-center gap-1.5 bg-slate-900 text-white text-xs font-semibold px-4 py-2 rounded-xl hover:bg-slate-800 transition"
+                className="mt-4 inline-flex items-center gap-1.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition shadow-xs"
               >
                 Find a Print Shop <ArrowRight className="w-3.5 h-3.5" />
               </Link>
@@ -371,13 +371,13 @@ export function Profile({ user }: { user: User | null }) {
               return (
                 <div 
                   key={order.id} 
-                  className="bg-white rounded-2xl border border-slate-150 shadow-sm hover:shadow-md transition overflow-hidden"
+                  className="bg-white rounded-3xl border border-slate-200/80 shadow-xs hover:shadow-md hover:border-slate-300 transition-all duration-200 overflow-hidden"
                 >
                   {/* Top Bar with Shop Name and Status */}
-                  <div className="bg-slate-50 px-5 py-4 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div className="bg-slate-50/70 px-5 sm:px-6 py-4 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div>
                       <div className="flex items-center gap-1.5 text-sm font-bold text-slate-900">
-                        <MapPin className="w-4 h-4 text-slate-500" />
+                        <MapPin className="w-4 h-4 text-indigo-600" />
                         <span className="notranslate" translate="no">{shopName}</span>
                       </div>
                       <p className="text-[11px] text-slate-500 ml-5 notranslate" translate="no">{shopAddress}</p>
@@ -387,27 +387,27 @@ export function Profile({ user }: { user: User | null }) {
                         <button 
                           onClick={() => handleCancelOrder(order)}
                           disabled={cancellingId === order.id}
-                          className="flex items-center gap-1 text-[11px] font-bold text-red-600 hover:text-red-700 bg-red-50 px-2.5 py-1 rounded-full transition mr-2"
+                          className="flex items-center gap-1 text-[11px] font-bold text-red-600 hover:text-red-700 bg-red-50 hover:bg-red-100 px-2.5 py-1 rounded-full transition mr-2 cursor-pointer"
                         >
                           <XCircle className="w-3.5 h-3.5" /> Cancel & Refund
                         </button>
                       )}
-                      <span className={`inline-flex items-center border text-[11px] px-2.5 py-0.5 rounded-full font-medium ${getStatusBadgeStyles(order.status)}`}>
+                      <span className={`inline-flex items-center border text-[11px] px-2.5 py-0.5 rounded-full font-bold uppercase tracking-wider ${getStatusBadgeStyles(order.status)}`}>
                         {order.status}
                       </span>
                     </div>
                   </div>
 
                   {/* Body Content */}
-                  <div className="p-5 space-y-4">
+                  <div className="p-5 sm:p-6 space-y-4">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
                       {/* File Details */}
                       <div className="flex items-start gap-3">
-                        <div className="bg-indigo-50 p-2.5 rounded-xl text-indigo-600 shrink-0">
+                        <div className="bg-indigo-50 border border-indigo-150 p-2.5 rounded-xl text-indigo-600 shrink-0 shadow-2xs">
                           <FileText className="w-5 h-5" />
                         </div>
                         <div className="min-w-0">
-                          <h4 className="text-sm font-semibold text-slate-900 truncate">
+                          <h4 className="text-sm font-bold text-slate-900 truncate">
                             {order.files ? (
                                order.files.length === 1 
                                  ? order.files[0].fileName 
@@ -431,19 +431,19 @@ export function Profile({ user }: { user: User | null }) {
                       {/* Action Links */}
                       <div className="flex flex-col sm:flex-row items-center gap-2">
                         {order.status === 'Completed' || order.status === 'Cancelled' ? (
-                          <button onClick={() => toast.success('Files added to reorder queue!')} className="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-slate-600 hover:text-slate-800 bg-slate-100 hover:bg-slate-200 px-3.5 py-2 rounded-xl transition">
+                          <button onClick={() => toast.success('Files added to reorder queue!')} className="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-slate-700 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 px-3.5 py-2 rounded-xl transition cursor-pointer">
                             <Printer className="w-3.5 h-3.5" /> Reprint
                           </button>
                         ) : null}
                         <Link 
                           to={`/order/${order.id}/cover`} 
-                          className="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-slate-700 hover:text-slate-900 bg-white border border-slate-200 px-3.5 py-2 rounded-xl transition"
+                          className="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-slate-700 hover:text-slate-900 bg-white border border-slate-200 hover:border-slate-300 px-3.5 py-2 rounded-xl transition shadow-2xs"
                         >
                           View Cover Slip
                         </Link>
                         <Link 
                           to={`/track/${order.id}`} 
-                          className="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-indigo-600 hover:text-indigo-800 bg-indigo-50/50 hover:bg-indigo-50 px-3.5 py-2 rounded-xl transition"
+                          className="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-indigo-600 hover:text-indigo-700 bg-indigo-50/80 hover:bg-indigo-100 px-3.5 py-2 rounded-xl transition border border-indigo-150"
                         >
                           Track Status <ArrowRight className="w-3.5 h-3.5" />
                         </Link>
@@ -451,23 +451,23 @@ export function Profile({ user }: { user: User | null }) {
                     </div>
 
                     {/* Print Specifications Summary */}
-                    <div className="bg-slate-50/60 p-3 rounded-xl border border-slate-100 text-xs">
+                    <div className="bg-slate-50/70 p-3.5 rounded-2xl border border-slate-150 text-xs">
                       <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-2 gap-x-4 text-slate-600">
                         <div>
-                          <span className="text-slate-400">Color Mode:</span>{' '}
-                          <span className="font-semibold text-slate-700">{order.settings.color}</span>
+                          <span className="text-slate-400 font-medium">Color Mode:</span>{' '}
+                          <span className="font-semibold text-slate-800">{order.settings.color}</span>
                         </div>
                         <div>
-                          <span className="text-slate-400">Copies:</span>{' '}
-                          <span className="font-semibold text-slate-700">{order.settings.copies}</span>
+                          <span className="text-slate-400 font-medium">Copies:</span>{' '}
+                          <span className="font-semibold text-slate-800">{order.settings.copies}</span>
                         </div>
                         <div>
-                          <span className="text-slate-400">Sides:</span>{' '}
-                          <span className="font-semibold text-slate-700">{order.settings.sides}</span>
+                          <span className="text-slate-400 font-medium">Sides:</span>{' '}
+                          <span className="font-semibold text-slate-800">{order.settings.sides}</span>
                         </div>
                         <div>
-                          <span className="text-slate-400">Paper:</span>{' '}
-                          <span className="font-semibold text-slate-700">{order.settings.paperSize} ({order.settings.paperType})</span>
+                          <span className="text-slate-400 font-medium">Paper:</span>{' '}
+                          <span className="font-semibold text-slate-800">{order.settings.paperSize} ({order.settings.paperType})</span>
                         </div>
                       </div>
                     </div>

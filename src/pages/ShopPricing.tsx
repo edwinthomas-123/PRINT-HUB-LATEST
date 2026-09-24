@@ -216,37 +216,37 @@ export function ShopPricing({ user }: { user: User | null }) {
       <div className="flex flex-col lg:flex-row gap-8 animate-fade-in pb-12">
         {/* Sidebar */}
         <aside className="lg:w-64 shrink-0 flex flex-col gap-6">
-          <div className="bg-white rounded-3xl border border-slate-200 p-6 flex flex-col gap-6 shadow-sm">
+          <div className="bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col gap-6 shadow-xs">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white font-extrabold text-sm">
+              <div className="w-10 h-10 bg-gradient-to-tr from-indigo-600 to-indigo-700 rounded-2xl flex items-center justify-center text-white font-extrabold text-sm shadow-md shadow-indigo-600/20 ring-2 ring-indigo-500/20">
                 PH
               </div>
               <div>
-                <h2 className="font-bold text-slate-900 leading-tight text-sm">PrintHub</h2>
-                <p className="text-[11px] text-slate-400 font-bold uppercase tracking-wider">Partner Portal</p>
+                <h2 className="font-black text-slate-900 leading-tight text-sm tracking-tight">PrintHub</h2>
+                <p className="text-[10px] text-slate-400 font-black uppercase tracking-wider">Partner Portal</p>
               </div>
             </div>
 
             <nav className="flex flex-col gap-1.5">
               <Link 
                 to="/dashboard"
-                className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold transition-all text-slate-600 hover:bg-slate-50"
+                className="w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-xs font-bold transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-50"
               >
-                <Store className="w-4 h-4" />
+                <Store className="w-4 h-4 text-slate-400" />
                 <span>Overview</span>
               </Link>
               <Link 
                 to="/dashboard/pricing"
-                className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold transition-all bg-indigo-50 text-indigo-700 shadow-sm border-r-4 border-indigo-600"
+                className="w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-xs font-bold transition-all bg-indigo-50/90 text-indigo-700 shadow-xs border-r-4 border-indigo-600"
               >
-                <Settings className="w-4 h-4" />
+                <Settings className="w-4 h-4 text-indigo-600" />
                 <span>Pricing</span>
               </Link>
               <Link 
                 to="/dashboard"
-                className="w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold transition-all text-slate-600 hover:bg-slate-50"
+                className="w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-xs font-bold transition-all text-slate-600 hover:text-slate-900 hover:bg-slate-50"
               >
-                <Laptop className="w-4 h-4" />
+                <Laptop className="w-4 h-4 text-slate-400" />
                 <span>Companion App</span>
               </Link>
             </nav>
@@ -255,23 +255,23 @@ export function ShopPricing({ user }: { user: User | null }) {
 
         {/* Workspace Column */}
         <div className="flex-1 min-w-0 space-y-8">
-          <header className="bg-white rounded-3xl border border-slate-200 p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm">
+          <header className="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-7 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xs">
             <div>
               <div className="flex items-center gap-2.5 mb-1.5">
                 <Link to="/dashboard" className="text-slate-500 hover:text-indigo-600 flex items-center gap-1 text-xs font-bold transition">
                   <ArrowLeft className="w-3.5 h-3.5" /> Dashboard
                 </Link>
                 <span className="text-slate-300">|</span>
-                <span className="font-bold text-xs text-slate-400 font-sans uppercase tracking-wider">Pricing Configuration</span>
+                <span className="font-black text-[10px] text-slate-400 font-sans uppercase tracking-widest">Pricing Configuration</span>
               </div>
-              <h1 className="text-2xl font-black text-slate-950 truncate max-w-md notranslate" translate="no">{shop?.name || 'My Print Shop'}</h1>
+              <h1 className="text-2xl font-black text-slate-950 truncate max-w-md tracking-tight notranslate" translate="no">{shop?.name || 'My Print Shop'}</h1>
             </div>
 
             <div className="flex items-center gap-3">
               <button 
                 onClick={handleSave} 
                 disabled={saving} 
-                className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-2xl text-xs transition flex items-center gap-2 cursor-pointer shadow-md shadow-indigo-100 disabled:opacity-50"
+                className="bg-indigo-600 hover:bg-indigo-700 active:scale-[0.98] text-white font-bold py-3 px-6 rounded-2xl text-xs transition flex items-center gap-2 cursor-pointer shadow-md shadow-indigo-600/20 disabled:opacity-50"
               >
                 {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Check className="w-4 h-4" />}
                 <span>Save All Rates</span>
@@ -284,173 +284,173 @@ export function ShopPricing({ user }: { user: User | null }) {
             <div className="xl:col-span-2 space-y-6">
               
               {/* Range Pricing Black & White Card */}
-              <div className="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm">
-                <div className="flex items-center gap-3 mb-4 border-b border-slate-100 pb-3">
-                  <div className="p-2 bg-slate-100 text-slate-700 rounded-xl">
+              <div className="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-7 shadow-xs">
+                <div className="flex items-center gap-3 mb-5 border-b border-slate-100 pb-4">
+                  <div className="p-2.5 bg-slate-100 border border-slate-200/70 text-slate-700 rounded-2xl shadow-xs">
                     <Layers className="w-5 h-5" />
                   </div>
                   <div>
-                    <h2 className="text-base font-bold text-slate-900">Black & White Range Pricing</h2>
-                    <p className="text-[11px] text-slate-400">Volume discounted rates for printing black & white documents</p>
+                    <h2 className="text-base font-black text-slate-900 tracking-tight">Black & White Range Pricing</h2>
+                    <p className="text-xs text-slate-500 mt-0.5">Volume discounted rates for printing black & white documents</p>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="bg-slate-50 p-4 border border-slate-150 rounded-2xl">
-                    <span className="block text-[11px] text-slate-500 font-bold uppercase tracking-wider mb-1">1 Page (Base)</span>
+                  <div className="bg-slate-50/70 p-4 sm:p-5 border border-slate-200/80 rounded-2xl hover:border-slate-300 transition-colors">
+                    <span className="block text-[11px] text-slate-500 font-black uppercase tracking-wider mb-2">1 Page (Base)</span>
                     <div className="flex items-center">
-                      <span className="text-slate-400 font-bold mr-2">₹</span>
+                      <span className="text-slate-400 font-bold mr-2 text-sm">₹</span>
                       <input 
                         type="text" 
                         inputMode="decimal"
                         value={getInputValue('bwPage1')} 
                         onChange={e => handleInputChange('bwPage1', e.target.value)}
                         onBlur={() => handleInputBlur('bwPage1', 5)}
-                        className="w-full bg-white border border-slate-200 rounded-xl p-2.5 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none font-bold text-slate-800" 
+                        className="w-full bg-white border border-slate-200/90 rounded-xl p-2.5 focus:ring-3 focus:ring-indigo-500/15 focus:border-indigo-500 outline-none font-black text-slate-900 shadow-2xs transition" 
                       />
                     </div>
-                    <span className="text-[10px] text-slate-400 mt-1.5 block">Applied to single-page documents</span>
+                    <span className="text-[10px] text-slate-500 mt-2 block font-medium">Applied to single-page documents</span>
                   </div>
 
-                  <div className="bg-slate-50 p-4 border border-slate-150 rounded-2xl">
-                    <span className="block text-[11px] text-slate-500 font-bold uppercase tracking-wider mb-1">2 - 15 Pages</span>
+                  <div className="bg-slate-50/70 p-4 sm:p-5 border border-slate-200/80 rounded-2xl hover:border-slate-300 transition-colors">
+                    <span className="block text-[11px] text-slate-500 font-black uppercase tracking-wider mb-2">2 - 15 Pages</span>
                     <div className="flex items-center">
-                      <span className="text-slate-400 font-bold mr-2">₹</span>
+                      <span className="text-slate-400 font-bold mr-2 text-sm">₹</span>
                       <input 
                         type="text" 
                         inputMode="decimal"
                         value={getInputValue('bwPage2To15')} 
                         onChange={e => handleInputChange('bwPage2To15', e.target.value)}
                         onBlur={() => handleInputBlur('bwPage2To15', 3)}
-                        className="w-full bg-white border border-slate-200 rounded-xl p-2.5 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none font-bold text-slate-800" 
+                        className="w-full bg-white border border-slate-200/90 rounded-xl p-2.5 focus:ring-3 focus:ring-indigo-500/15 focus:border-indigo-500 outline-none font-black text-slate-900 shadow-2xs transition" 
                       />
                     </div>
-                    <span className="text-[10px] text-slate-400 mt-1.5 block">Per page price for medium files</span>
+                    <span className="text-[10px] text-slate-500 mt-2 block font-medium">Per page price for medium files</span>
                   </div>
 
-                  <div className="bg-slate-50 p-4 border border-slate-150 rounded-2xl">
-                    <span className="block text-[11px] text-slate-500 font-bold uppercase tracking-wider mb-1">16+ Pages</span>
+                  <div className="bg-slate-50/70 p-4 sm:p-5 border border-slate-200/80 rounded-2xl hover:border-slate-300 transition-colors">
+                    <span className="block text-[11px] text-slate-500 font-black uppercase tracking-wider mb-2">16+ Pages</span>
                     <div className="flex items-center">
-                      <span className="text-slate-400 font-bold mr-2">₹</span>
+                      <span className="text-slate-400 font-bold mr-2 text-sm">₹</span>
                       <input 
                         type="text" 
                         inputMode="decimal"
                         value={getInputValue('bwPage16Plus')} 
                         onChange={e => handleInputChange('bwPage16Plus', e.target.value)}
                         onBlur={() => handleInputBlur('bwPage16Plus', 2)}
-                        className="w-full bg-white border border-slate-200 rounded-xl p-2.5 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none font-bold text-slate-800" 
+                        className="w-full bg-white border border-slate-200/90 rounded-xl p-2.5 focus:ring-3 focus:ring-indigo-500/15 focus:border-indigo-500 outline-none font-black text-slate-900 shadow-2xs transition" 
                       />
                     </div>
-                    <span className="text-[10px] text-slate-400 mt-1.5 block">Per page price for bulky files</span>
+                    <span className="text-[10px] text-slate-500 mt-2 block font-medium">Per page price for bulky files</span>
                   </div>
                 </div>
               </div>
 
               {/* Range Pricing Color Card */}
-              <div className="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm">
-                <div className="flex items-center gap-3 mb-4 border-b border-slate-100 pb-3">
-                  <div className="p-2 bg-rose-50 text-rose-600 rounded-xl">
+              <div className="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-7 shadow-xs">
+                <div className="flex items-center gap-3 mb-5 border-b border-slate-100 pb-4">
+                  <div className="p-2.5 bg-rose-50 border border-rose-100/70 text-rose-600 rounded-2xl shadow-xs">
                     <Layers className="w-5 h-5" />
                   </div>
                   <div>
-                    <h2 className="text-base font-bold text-slate-900">Color Range Pricing</h2>
-                    <p className="text-[11px] text-slate-400">Volume discounted rates for printing color documents</p>
+                    <h2 className="text-base font-black text-slate-900 tracking-tight">Color Range Pricing</h2>
+                    <p className="text-xs text-slate-500 mt-0.5">Volume discounted rates for printing color documents</p>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="bg-slate-50 p-4 border border-slate-150 rounded-2xl">
-                    <span className="block text-[11px] text-slate-500 font-bold uppercase tracking-wider mb-1">1 Page (Base)</span>
+                  <div className="bg-slate-50/70 p-4 sm:p-5 border border-slate-200/80 rounded-2xl hover:border-slate-300 transition-colors">
+                    <span className="block text-[11px] text-slate-500 font-black uppercase tracking-wider mb-2">1 Page (Base)</span>
                     <div className="flex items-center">
-                      <span className="text-slate-400 font-bold mr-2">₹</span>
+                      <span className="text-slate-400 font-bold mr-2 text-sm">₹</span>
                       <input 
                         type="text" 
                         inputMode="decimal"
                         value={getInputValue('colorPage1')} 
                         onChange={e => handleInputChange('colorPage1', e.target.value)}
                         onBlur={() => handleInputBlur('colorPage1', 15)}
-                        className="w-full bg-white border border-slate-200 rounded-xl p-2.5 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none font-bold text-slate-800" 
+                        className="w-full bg-white border border-slate-200/90 rounded-xl p-2.5 focus:ring-3 focus:ring-indigo-500/15 focus:border-indigo-500 outline-none font-black text-slate-900 shadow-2xs transition" 
                       />
                     </div>
-                    <span className="text-[10px] text-slate-400 mt-1.5 block">Applied to single-page documents</span>
+                    <span className="text-[10px] text-slate-500 mt-2 block font-medium">Applied to single-page documents</span>
                   </div>
 
-                  <div className="bg-slate-50 p-4 border border-slate-150 rounded-2xl">
-                    <span className="block text-[11px] text-slate-500 font-bold uppercase tracking-wider mb-1">2 - 15 Pages</span>
+                  <div className="bg-slate-50/70 p-4 sm:p-5 border border-slate-200/80 rounded-2xl hover:border-slate-300 transition-colors">
+                    <span className="block text-[11px] text-slate-500 font-black uppercase tracking-wider mb-2">2 - 15 Pages</span>
                     <div className="flex items-center">
-                      <span className="text-slate-400 font-bold mr-2">₹</span>
+                      <span className="text-slate-400 font-bold mr-2 text-sm">₹</span>
                       <input 
                         type="text" 
                         inputMode="decimal"
                         value={getInputValue('colorPage2To15')} 
                         onChange={e => handleInputChange('colorPage2To15', e.target.value)}
                         onBlur={() => handleInputBlur('colorPage2To15', 10)}
-                        className="w-full bg-white border border-slate-200 rounded-xl p-2.5 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none font-bold text-slate-800" 
+                        className="w-full bg-white border border-slate-200/90 rounded-xl p-2.5 focus:ring-3 focus:ring-indigo-500/15 focus:border-indigo-500 outline-none font-black text-slate-900 shadow-2xs transition" 
                       />
                     </div>
-                    <span className="text-[10px] text-slate-400 mt-1.5 block">Per page price for medium files</span>
+                    <span className="text-[10px] text-slate-500 mt-2 block font-medium">Per page price for medium files</span>
                   </div>
 
-                  <div className="bg-slate-50 p-4 border border-slate-150 rounded-2xl">
-                    <span className="block text-[11px] text-slate-500 font-bold uppercase tracking-wider mb-1">16+ Pages</span>
+                  <div className="bg-slate-50/70 p-4 sm:p-5 border border-slate-200/80 rounded-2xl hover:border-slate-300 transition-colors">
+                    <span className="block text-[11px] text-slate-500 font-black uppercase tracking-wider mb-2">16+ Pages</span>
                     <div className="flex items-center">
-                      <span className="text-slate-400 font-bold mr-2">₹</span>
+                      <span className="text-slate-400 font-bold mr-2 text-sm">₹</span>
                       <input 
                         type="text" 
                         inputMode="decimal"
                         value={getInputValue('colorPage16Plus')} 
                         onChange={e => handleInputChange('colorPage16Plus', e.target.value)}
                         onBlur={() => handleInputBlur('colorPage16Plus', 8)}
-                        className="w-full bg-white border border-slate-200 rounded-xl p-2.5 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none font-bold text-slate-800" 
+                        className="w-full bg-white border border-slate-200/90 rounded-xl p-2.5 focus:ring-3 focus:ring-indigo-500/15 focus:border-indigo-500 outline-none font-black text-slate-900 shadow-2xs transition" 
                       />
                     </div>
-                    <span className="text-[10px] text-slate-400 mt-1.5 block">Per page price for bulky files</span>
+                    <span className="text-[10px] text-slate-500 mt-2 block font-medium">Per page price for bulky files</span>
                   </div>
                 </div>
               </div>
 
               {/* Side Options & Surcharges Card */}
-              <div className="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm">
-                <div className="flex items-center gap-3 mb-4 border-b border-slate-100 pb-3">
-                  <div className="p-2 bg-indigo-50 text-indigo-600 rounded-xl">
+              <div className="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-7 shadow-xs">
+                <div className="flex items-center gap-3 mb-5 border-b border-slate-100 pb-4">
+                  <div className="p-2.5 bg-indigo-50 border border-indigo-100/70 text-indigo-600 rounded-2xl shadow-xs">
                     <FileText className="w-5 h-5" />
                   </div>
                   <div>
-                    <h2 className="text-base font-bold text-slate-900">Double-Sided & Surcharges</h2>
-                    <p className="text-[11px] text-slate-400">Specify paper size multipliers, double side pricing, and photo base fallbacks</p>
+                    <h2 className="text-base font-black text-slate-900 tracking-tight">Double-Sided & Surcharges</h2>
+                    <p className="text-xs text-slate-500 mt-0.5">Specify paper size multipliers, double side pricing, and photo base fallbacks</p>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   {/* B&W Double Sided vs Fallback */}
                   <div className="space-y-4">
-                    <h4 className="font-bold text-slate-700 text-xs uppercase tracking-wider border-b border-slate-50 pb-1">Black & White Details</h4>
+                    <h4 className="font-black text-slate-800 text-xs uppercase tracking-wider border-b border-slate-100 pb-2">Black & White Details</h4>
                     <div className="grid grid-cols-2 gap-3">
                       <div>
-                        <span className="block text-[10px] text-slate-500 font-bold mb-1">Double-Sided Sheet (₹)</span>
+                        <span className="block text-[10px] text-slate-500 font-bold mb-1.5 uppercase tracking-wide">Double-Sided Sheet</span>
                         <div className="flex items-center">
-                          <span className="text-slate-400 mr-1.5 text-xs">₹</span>
+                          <span className="text-slate-400 mr-1.5 text-xs font-bold">₹</span>
                           <input 
                             type="text" 
                             inputMode="decimal"
                             value={getInputValue('bwDoubleSide')} 
                             onChange={e => handleInputChange('bwDoubleSide', e.target.value)}
                             onBlur={() => handleInputBlur('bwDoubleSide', 3)}
-                            className="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 focus:ring-1 focus:ring-indigo-500 outline-none text-xs font-bold text-slate-800" 
+                            className="w-full bg-slate-50/70 border border-slate-200 rounded-xl p-2.5 focus:bg-white focus:ring-3 focus:ring-indigo-500/15 focus:border-indigo-500 outline-none text-xs font-black text-slate-900 shadow-2xs transition" 
                           />
                         </div>
                       </div>
                       <div>
-                        <span className="block text-[10px] text-slate-500 font-bold mb-1">Legacy Base (₹)</span>
+                        <span className="block text-[10px] text-slate-500 font-bold mb-1.5 uppercase tracking-wide">Legacy Base</span>
                         <div className="flex items-center">
-                          <span className="text-slate-400 mr-1.5 text-xs">₹</span>
+                          <span className="text-slate-400 mr-1.5 text-xs font-bold">₹</span>
                           <input 
                             type="text" 
                             inputMode="decimal"
                             value={getInputValue('bwBase')} 
                             onChange={e => handleInputChange('bwBase', e.target.value)}
                             onBlur={() => handleInputBlur('bwBase', 2)}
-                            className="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 focus:ring-1 focus:ring-indigo-500 outline-none text-xs font-bold text-slate-800" 
+                            className="w-full bg-slate-50/70 border border-slate-200 rounded-xl p-2.5 focus:bg-white focus:ring-3 focus:ring-indigo-500/15 focus:border-indigo-500 outline-none text-xs font-black text-slate-900 shadow-2xs transition" 
                           />
                         </div>
                       </div>
@@ -459,33 +459,33 @@ export function ShopPricing({ user }: { user: User | null }) {
 
                   {/* Color Double Sided vs Fallback */}
                   <div className="space-y-4">
-                    <h4 className="font-bold text-slate-700 text-xs uppercase tracking-wider border-b border-slate-50 pb-1">Color Details</h4>
+                    <h4 className="font-black text-slate-800 text-xs uppercase tracking-wider border-b border-slate-100 pb-2">Color Details</h4>
                     <div className="grid grid-cols-2 gap-3">
                       <div>
-                        <span className="block text-[10px] text-slate-500 font-bold mb-1">Double-Sided Sheet (₹)</span>
+                        <span className="block text-[10px] text-slate-500 font-bold mb-1.5 uppercase tracking-wide">Double-Sided Sheet</span>
                         <div className="flex items-center">
-                          <span className="text-slate-400 mr-1.5 text-xs">₹</span>
+                          <span className="text-slate-400 mr-1.5 text-xs font-bold">₹</span>
                           <input 
                             type="text" 
                             inputMode="decimal"
                             value={getInputValue('colorDoubleSide')} 
                             onChange={e => handleInputChange('colorDoubleSide', e.target.value)}
                             onBlur={() => handleInputBlur('colorDoubleSide', 15)}
-                            className="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 focus:ring-1 focus:ring-indigo-500 outline-none text-xs font-bold text-slate-800" 
+                            className="w-full bg-slate-50/70 border border-slate-200 rounded-xl p-2.5 focus:bg-white focus:ring-3 focus:ring-indigo-500/15 focus:border-indigo-500 outline-none text-xs font-black text-slate-900 shadow-2xs transition" 
                           />
                         </div>
                       </div>
                       <div>
-                        <span className="block text-[10px] text-slate-500 font-bold mb-1">Legacy Base (₹)</span>
+                        <span className="block text-[10px] text-slate-500 font-bold mb-1.5 uppercase tracking-wide">Legacy Base</span>
                         <div className="flex items-center">
-                          <span className="text-slate-400 mr-1.5 text-xs">₹</span>
+                          <span className="text-slate-400 mr-1.5 text-xs font-bold">₹</span>
                           <input 
                             type="text" 
                             inputMode="decimal"
                             value={getInputValue('colorBase')} 
                             onChange={e => handleInputChange('colorBase', e.target.value)}
                             onBlur={() => handleInputBlur('colorBase', 10)}
-                            className="w-full bg-slate-50 border border-slate-200 rounded-xl p-2 focus:ring-1 focus:ring-indigo-500 outline-none text-xs font-bold text-slate-800" 
+                            className="w-full bg-slate-50/70 border border-slate-200 rounded-xl p-2.5 focus:bg-white focus:ring-3 focus:ring-indigo-500/15 focus:border-indigo-500 outline-none text-xs font-black text-slate-900 shadow-2xs transition" 
                           />
                         </div>
                       </div>
@@ -494,40 +494,40 @@ export function ShopPricing({ user }: { user: User | null }) {
 
                   {/* Surcharges (A3 and Glossy) */}
                   <div className="space-y-4 md:col-span-2">
-                    <h4 className="font-bold text-slate-700 text-xs uppercase tracking-wider border-b border-slate-50 pb-1">Media Options & Paper Upgrades</h4>
+                    <h4 className="font-black text-slate-800 text-xs uppercase tracking-wider border-b border-slate-100 pb-2">Media Options & Paper Upgrades</h4>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="bg-slate-50/50 p-3 rounded-2xl border border-slate-100 flex items-center justify-between">
+                      <div className="bg-slate-50/70 p-4 rounded-2xl border border-slate-200/80 flex items-center justify-between hover:border-slate-300 transition-colors">
                         <div>
-                          <span className="block text-xs font-bold text-slate-700">A3 Multiplier (x)</span>
-                          <span className="text-[10px] text-slate-400">Multiplies page cost for larger format paper</span>
+                          <span className="block text-xs font-bold text-slate-800">A3 Multiplier (x)</span>
+                          <span className="text-[10px] text-slate-500">Multiplies page cost for larger format paper</span>
                         </div>
                         <div className="flex items-center w-24">
-                          <span className="text-slate-400 font-bold mr-1 text-xs">x</span>
+                          <span className="text-slate-400 font-bold mr-1.5 text-xs">x</span>
                           <input 
                             type="text" 
                             inputMode="decimal"
                             value={getInputValue('a3Multiplier')} 
                             onChange={e => handleInputChange('a3Multiplier', e.target.value)}
                             onBlur={() => handleInputBlur('a3Multiplier', 2)}
-                            className="w-full bg-white border border-slate-200 rounded-xl p-1.5 text-right font-bold text-xs outline-none" 
+                            className="w-full bg-white border border-slate-200 rounded-xl p-2 text-right font-black text-xs outline-none focus:ring-3 focus:ring-indigo-500/15 focus:border-indigo-500 transition shadow-2xs" 
                           />
                         </div>
                       </div>
 
-                      <div className="bg-slate-50/50 p-3 rounded-2xl border border-slate-100 flex items-center justify-between">
+                      <div className="bg-slate-50/70 p-4 rounded-2xl border border-slate-200/80 flex items-center justify-between hover:border-slate-300 transition-colors">
                         <div>
-                          <span className="block text-xs font-bold text-slate-700">Glossy Paper Add-on (₹)</span>
-                          <span className="text-[10px] text-slate-400">Flat premium added per glossy sheet</span>
+                          <span className="block text-xs font-bold text-slate-800">Glossy Paper Add-on (₹)</span>
+                          <span className="text-[10px] text-slate-500">Flat premium added per glossy sheet</span>
                         </div>
                         <div className="flex items-center w-24">
-                          <span className="text-slate-400 font-bold mr-1 text-xs">₹</span>
+                          <span className="text-slate-400 font-bold mr-1.5 text-xs">₹</span>
                           <input 
                             type="text" 
                             inputMode="decimal"
                             value={getInputValue('glossyAddon')} 
                             onChange={e => handleInputChange('glossyAddon', e.target.value)}
                             onBlur={() => handleInputBlur('glossyAddon', 5)}
-                            className="w-full bg-white border border-slate-200 rounded-xl p-1.5 text-right font-bold text-xs outline-none" 
+                            className="w-full bg-white border border-slate-200 rounded-xl p-2 text-right font-black text-xs outline-none focus:ring-3 focus:ring-indigo-500/15 focus:border-indigo-500 transition shadow-2xs" 
                           />
                         </div>
                       </div>
@@ -537,64 +537,64 @@ export function ShopPricing({ user }: { user: User | null }) {
               </div>
 
               {/* Photo Printing Rates */}
-              <div className="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm">
-                <div className="flex items-center gap-3 mb-4 border-b border-slate-100 pb-3">
-                  <div className="p-2 bg-emerald-50 text-emerald-600 rounded-xl">
+              <div className="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-7 shadow-xs">
+                <div className="flex items-center gap-3 mb-5 border-b border-slate-100 pb-4">
+                  <div className="p-2.5 bg-emerald-50 border border-emerald-100/70 text-emerald-600 rounded-2xl shadow-xs">
                     <Image className="w-5 h-5" />
                   </div>
                   <div>
-                    <h2 className="text-base font-bold text-slate-900">Premium Photo Printing</h2>
-                    <p className="text-[11px] text-slate-400">Configure flat rates for printing on premium glossy photo paper cuts</p>
+                    <h2 className="text-base font-black text-slate-900 tracking-tight">Premium Photo Printing</h2>
+                    <p className="text-xs text-slate-500 mt-0.5">Configure flat rates for printing on premium glossy photo paper cuts</p>
                   </div>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  <div className="bg-slate-50 p-4 border border-slate-150 rounded-2xl">
-                    <span className="block text-[11px] text-slate-500 font-bold uppercase tracking-wider mb-1">6" x 4" Photo</span>
+                  <div className="bg-slate-50/70 p-4 sm:p-5 border border-slate-200/80 rounded-2xl hover:border-slate-300 transition-colors">
+                    <span className="block text-[11px] text-slate-500 font-black uppercase tracking-wider mb-2">6" x 4" Photo</span>
                     <div className="flex items-center">
-                      <span className="text-slate-400 font-bold mr-2">₹</span>
+                      <span className="text-slate-400 font-bold mr-2 text-sm">₹</span>
                       <input 
                         type="text" 
                         inputMode="decimal"
                         value={getInputValue('photo6x4')} 
                         onChange={e => handleInputChange('photo6x4', e.target.value)}
                         onBlur={() => handleInputBlur('photo6x4', 15)}
-                        className="w-full bg-white border border-slate-200 rounded-xl p-2.5 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none font-bold text-slate-800" 
+                        className="w-full bg-white border border-slate-200/90 rounded-xl p-2.5 focus:ring-3 focus:ring-indigo-500/15 focus:border-indigo-500 outline-none font-black text-slate-900 shadow-2xs transition" 
                       />
                     </div>
-                    <span className="text-[10px] text-slate-400 mt-1.5 block">Per print charge</span>
+                    <span className="text-[10px] text-slate-500 mt-2 block font-medium">Per print charge</span>
                   </div>
 
-                  <div className="bg-slate-50 p-4 border border-slate-150 rounded-2xl">
-                    <span className="block text-[11px] text-slate-500 font-bold uppercase tracking-wider mb-1">7" x 5" Photo</span>
+                  <div className="bg-slate-50/70 p-4 sm:p-5 border border-slate-200/80 rounded-2xl hover:border-slate-300 transition-colors">
+                    <span className="block text-[11px] text-slate-500 font-black uppercase tracking-wider mb-2">7" x 5" Photo</span>
                     <div className="flex items-center">
-                      <span className="text-slate-400 font-bold mr-2">₹</span>
+                      <span className="text-slate-400 font-bold mr-2 text-sm">₹</span>
                       <input 
                         type="text" 
                         inputMode="decimal"
                         value={getInputValue('photo7x5')} 
                         onChange={e => handleInputChange('photo7x5', e.target.value)}
                         onBlur={() => handleInputBlur('photo7x5', 25)}
-                        className="w-full bg-white border border-slate-200 rounded-xl p-2.5 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none font-bold text-slate-800" 
+                        className="w-full bg-white border border-slate-200/90 rounded-xl p-2.5 focus:ring-3 focus:ring-indigo-500/15 focus:border-indigo-500 outline-none font-black text-slate-900 shadow-2xs transition" 
                       />
                     </div>
-                    <span className="text-[10px] text-slate-400 mt-1.5 block">Per print charge</span>
+                    <span className="text-[10px] text-slate-500 mt-2 block font-medium">Per print charge</span>
                   </div>
 
-                  <div className="bg-slate-50 p-4 border border-slate-150 rounded-2xl">
-                    <span className="block text-[11px] text-slate-500 font-bold uppercase tracking-wider mb-1">8" x 6" Photo</span>
+                  <div className="bg-slate-50/70 p-4 sm:p-5 border border-slate-200/80 rounded-2xl hover:border-slate-300 transition-colors">
+                    <span className="block text-[11px] text-slate-500 font-black uppercase tracking-wider mb-2">8" x 6" Photo</span>
                     <div className="flex items-center">
-                      <span className="text-slate-400 font-bold mr-2">₹</span>
+                      <span className="text-slate-400 font-bold mr-2 text-sm">₹</span>
                       <input 
                         type="text" 
                         inputMode="decimal"
                         value={getInputValue('photo8x6')} 
                         onChange={e => handleInputChange('photo8x6', e.target.value)}
                         onBlur={() => handleInputBlur('photo8x6', 35)}
-                        className="w-full bg-white border border-slate-200 rounded-xl p-2.5 focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500 outline-none font-bold text-slate-800" 
+                        className="w-full bg-white border border-slate-200/90 rounded-xl p-2.5 focus:ring-3 focus:ring-indigo-500/15 focus:border-indigo-500 outline-none font-black text-slate-900 shadow-2xs transition" 
                       />
                     </div>
-                    <span className="text-[10px] text-slate-400 mt-1.5 block">Per print charge</span>
+                    <span className="text-[10px] text-slate-500 mt-2 block font-medium">Per print charge</span>
                   </div>
                 </div>
               </div>
@@ -605,27 +605,29 @@ export function ShopPricing({ user }: { user: User | null }) {
             <div className="space-y-6">
               
               {/* Simulation Sandbox Card */}
-              <div className="bg-slate-900 rounded-3xl p-6 text-white shadow-xl border border-slate-800 sticky top-20">
-                <div className="flex items-center gap-2 mb-4">
-                  <Calculator className="w-5 h-5 text-indigo-400" />
-                  <h3 className="text-base font-bold">Pricing Simulation Sandbox</h3>
+              <div className="bg-slate-900/95 backdrop-blur-xl rounded-3xl p-6 sm:p-7 text-white shadow-xl border border-slate-800 sticky top-20">
+                <div className="flex items-center gap-2.5 mb-3">
+                  <div className="p-2 bg-indigo-500/15 border border-indigo-500/25 rounded-xl text-indigo-400 shadow-xs">
+                    <Calculator className="w-5 h-5" />
+                  </div>
+                  <h3 className="text-base font-black tracking-tight text-white">Pricing Simulation</h3>
                 </div>
                 
                 <p className="text-xs text-slate-400 leading-relaxed mb-6">
-                  Test and verify how your new range rates and surcharges apply to customer uploads in real-time.
+                  Test and verify how your range rates and surcharges apply to customer uploads in real-time.
                 </p>
 
                 <div className="space-y-4 text-xs">
                   {/* Select Paper size & photo */}
                   <div>
-                    <label className="block text-slate-400 font-medium mb-1.5">Document or Photo Size</label>
+                    <label className="block text-slate-300 font-bold mb-1.5">Document or Photo Size</label>
                     <select 
                       value={simPaperSize} 
                       onChange={e => {
                         const val = e.target.value as any;
                         setSimPaperSize(val);
                       }}
-                      className="w-full bg-slate-800 border border-slate-700 rounded-xl p-2.5 outline-none focus:border-indigo-500 text-white font-medium"
+                      className="w-full bg-slate-800/90 border border-slate-700/80 rounded-xl p-2.5 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/25 text-white font-bold transition shadow-xs cursor-pointer"
                     >
                       <option value="A4">A4 (Standard)</option>
                       <option value="A3">A3 (Large Surcharge)</option>
@@ -640,19 +642,19 @@ export function ShopPricing({ user }: { user: User | null }) {
                     <>
                       {/* B&W or Color */}
                       <div>
-                        <label className="block text-slate-400 font-medium mb-1.5">Color Option</label>
-                        <div className="grid grid-cols-2 gap-2 bg-slate-800 p-1 rounded-xl">
+                        <label className="block text-slate-300 font-bold mb-1.5">Color Option</label>
+                        <div className="grid grid-cols-2 gap-1.5 bg-slate-800/90 p-1 rounded-xl border border-slate-700/70">
                           <button 
                             type="button"
                             onClick={() => setSimColor('Black & White')}
-                            className={`py-1.5 rounded-lg text-center font-bold transition ${simColor === 'Black & White' ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-slate-200'}`}
+                            className={`py-2 rounded-lg text-center font-black transition cursor-pointer text-xs ${simColor === 'Black & White' ? 'bg-indigo-600 text-white shadow-xs' : 'text-slate-400 hover:text-slate-200'}`}
                           >
                             B&W
                           </button>
                           <button 
                             type="button"
                             onClick={() => setSimColor('Color')}
-                            className={`py-1.5 rounded-lg text-center font-bold transition ${simColor === 'Color' ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-slate-200'}`}
+                            className={`py-2 rounded-lg text-center font-black transition cursor-pointer text-xs ${simColor === 'Color' ? 'bg-indigo-600 text-white shadow-xs' : 'text-slate-400 hover:text-slate-200'}`}
                           >
                             Color
                           </button>
@@ -662,7 +664,7 @@ export function ShopPricing({ user }: { user: User | null }) {
                       {/* Number of Pages */}
                       <div className="grid grid-cols-2 gap-3">
                         <div>
-                          <label className="block text-slate-400 font-medium mb-1.5">Number of Pages</label>
+                          <label className="block text-slate-300 font-bold mb-1.5">Number of Pages</label>
                           <input 
                             type="text" 
                             inputMode="numeric"
@@ -680,15 +682,15 @@ export function ShopPricing({ user }: { user: User | null }) {
                                 setRawSimPages(String(parseInt(rawSimPages, 10)));
                               }
                             }}
-                            className="w-full bg-slate-800 border border-slate-700 rounded-xl p-2.5 outline-none focus:border-indigo-500 text-white font-bold" 
+                            className="w-full bg-slate-800/90 border border-slate-700/80 rounded-xl p-2.5 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/25 text-white font-bold transition shadow-xs" 
                           />
                         </div>
                         <div>
-                          <label className="block text-slate-400 font-medium mb-1.5">Sides</label>
+                          <label className="block text-slate-300 font-bold mb-1.5">Sides</label>
                           <select 
                             value={simSides} 
                             onChange={e => setSimSides(e.target.value as any)}
-                            className="w-full bg-slate-800 border border-slate-700 rounded-xl p-2.5 outline-none focus:border-indigo-500 text-white"
+                            className="w-full bg-slate-800/90 border border-slate-700/80 rounded-xl p-2.5 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/25 text-white font-bold transition shadow-xs cursor-pointer"
                           >
                             <option value="Single">Single Sided</option>
                             <option value="Double">Double Sided</option>
@@ -698,21 +700,21 @@ export function ShopPricing({ user }: { user: User | null }) {
 
                       {/* Paper Type */}
                       <div>
-                        <label className="block text-slate-400 font-medium mb-1.5">Paper Type Upgrade</label>
-                        <div className="grid grid-cols-2 gap-2 bg-slate-800 p-1 rounded-xl">
+                        <label className="block text-slate-300 font-bold mb-1.5">Paper Type Upgrade</label>
+                        <div className="grid grid-cols-2 gap-1.5 bg-slate-800/90 p-1 rounded-xl border border-slate-700/70">
                           <button 
                             type="button"
                             onClick={() => setSimPaperType('Plain')}
-                            className={`py-1.5 rounded-lg text-center font-bold transition ${simPaperType === 'Plain' ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-slate-200'}`}
+                            className={`py-2 rounded-lg text-center font-black transition cursor-pointer text-xs ${simPaperType === 'Plain' ? 'bg-indigo-600 text-white shadow-xs' : 'text-slate-400 hover:text-slate-200'}`}
                           >
                             Plain
                           </button>
                           <button 
                             type="button"
                             onClick={() => setSimPaperType('Glossy')}
-                            className={`py-1.5 rounded-lg text-center font-bold transition ${simPaperType === 'Glossy' ? 'bg-indigo-600 text-white' : 'text-slate-400 hover:text-slate-200'}`}
+                            className={`py-2 rounded-lg text-center font-black transition cursor-pointer text-xs ${simPaperType === 'Glossy' ? 'bg-indigo-600 text-white shadow-xs' : 'text-slate-400 hover:text-slate-200'}`}
                           >
-                            Glossy (+{pricing.glossyAddon} /sheet)
+                            Glossy (+₹{pricing.glossyAddon})
                           </button>
                         </div>
                       </div>
@@ -721,7 +723,7 @@ export function ShopPricing({ user }: { user: User | null }) {
 
                   {/* Number of Copies */}
                   <div>
-                    <label className="block text-slate-400 font-medium mb-1.5">Number of Copies</label>
+                    <label className="block text-slate-300 font-bold mb-1.5">Number of Copies</label>
                     <input 
                       type="text" 
                       inputMode="numeric"
@@ -739,15 +741,15 @@ export function ShopPricing({ user }: { user: User | null }) {
                           setRawSimCopies(String(parseInt(rawSimCopies, 10)));
                         }
                       }}
-                      className="w-full bg-slate-800 border border-slate-700 rounded-xl p-2.5 outline-none focus:border-indigo-500 text-white font-bold" 
+                      className="w-full bg-slate-800/90 border border-slate-700/80 rounded-xl p-2.5 outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/25 text-white font-bold transition shadow-xs" 
                     />
                   </div>
 
                   {/* Calculated Result Display */}
-                  <div className="pt-6 border-t border-slate-800 mt-6 text-center bg-slate-850 p-4 rounded-2xl border border-indigo-500/10">
+                  <div className="pt-6 border-t border-slate-800 mt-6 text-center bg-gradient-to-b from-slate-800/70 to-indigo-950/30 p-5 rounded-2xl border border-indigo-500/20 shadow-inner">
                     <span className="block text-[10px] text-indigo-400 uppercase tracking-widest font-extrabold mb-1">Estimated Customer Price</span>
-                    <span className="text-3xl font-black text-indigo-300">₹{calculatedSimPrice.toFixed(2)}</span>
-                    <span className="block text-[10px] text-slate-500 mt-1">
+                    <span className="text-3xl sm:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-200 via-indigo-100 to-white tracking-tight">₹{calculatedSimPrice.toFixed(2)}</span>
+                    <span className="block text-[11px] text-slate-400 mt-1.5 font-medium">
                       {simPaperSize.includes('Photo') ? (
                         <span>Photo size print rate ({simPaperSize})</span>
                       ) : (

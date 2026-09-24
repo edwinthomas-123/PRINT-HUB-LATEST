@@ -83,21 +83,21 @@ export function ShopProfile() {
   const mockEstimatedWait = shop.rating && shop.rating > 4.5 ? '10-15 mins' : '20-30 mins';
 
   return (
-    <div className="max-w-2xl mx-auto space-y-8 pb-12">
-      <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+    <div className="max-w-2xl mx-auto space-y-8 pb-12 animate-fade-in">
+      <div className="bg-white rounded-3xl shadow-sm border border-slate-200/80 overflow-hidden">
         
         {/* Cover Photo area */}
-        <div className="h-32 bg-indigo-900 w-full relative">
+        <div className="h-36 sm:h-44 bg-gradient-to-r from-indigo-950 via-slate-900 to-indigo-900 w-full relative overflow-hidden">
           {shop.coverImage ? (
             <img src={shop.coverImage} alt="Cover" className="w-full h-full object-cover" />
           ) : (
-            <div className="absolute inset-0 bg-[url('https://api.dicebear.com/7.x/shapes/svg?seed=print')] opacity-10 mix-blend-overlay"></div>
+            <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:16px_16px] opacity-15"></div>
           )}
         </div>
 
-        <div className="px-8 pb-8 text-center relative -mt-12">
+        <div className="px-6 sm:px-8 pb-8 text-center relative -mt-12 sm:-mt-14">
           {/* Logo */}
-          <div className="w-24 h-24 bg-white border-4 border-white text-indigo-600 rounded-full mx-auto flex items-center justify-center text-3xl font-bold mb-4 shadow-sm z-10 relative overflow-hidden">
+          <div className="w-24 h-24 bg-white border-4 border-white text-indigo-600 rounded-2xl mx-auto flex items-center justify-center text-3xl font-black mb-4 shadow-md z-10 relative overflow-hidden ring-1 ring-slate-200/80">
             {shop.logo ? (
               <img src={shop.logo} alt="Logo" className="w-full h-full object-contain bg-white" />
             ) : (
@@ -107,16 +107,16 @@ export function ShopProfile() {
             )}
           </div>
           
-          <h1 className="text-3xl font-bold mb-2 notranslate" translate="no">{shop.name}</h1>
-          <p className="text-slate-500 flex items-center justify-center gap-1 mb-4 notranslate" translate="no">
-            <MapPin className="w-4 h-4 text-slate-400" /> {shop.address}
+          <h1 className="text-2xl sm:text-3xl font-black mb-2 tracking-tight text-slate-900 notranslate" translate="no">{shop.name}</h1>
+          <p className="text-slate-500 text-xs sm:text-sm flex items-center justify-center gap-1.5 mb-5 notranslate" translate="no">
+            <MapPin className="w-4 h-4 text-slate-400 shrink-0" /> {shop.address}
           </p>
           
-          <div className="flex flex-wrap justify-center gap-6 text-sm font-medium text-slate-700 mb-8 bg-slate-50 py-3 rounded-xl border border-slate-100">
+          <div className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 text-xs sm:text-sm font-semibold text-slate-700 mb-8 bg-slate-50/80 py-3 px-4 rounded-2xl border border-slate-200/70 shadow-2xs">
             <div className="flex items-center gap-1.5"><Star className="w-4 h-4 text-amber-400 fill-current" /> {shop.rating || '4.0'} Rating</div>
             <div className="w-px h-4 bg-slate-300"></div>
             <div className="flex items-center gap-1.5">
-              {isOpenNow ? <span className="flex items-center gap-1.5 text-emerald-600"><div className="w-2 h-2 rounded-full bg-emerald-500"></div> Open Now</span> : <span className="flex items-center gap-1.5 text-red-600"><div className="w-2 h-2 rounded-full bg-red-500"></div> Closed</span>}
+              {isOpenNow ? <span className="flex items-center gap-1.5 text-emerald-600 font-bold"><div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></div> Open Now</span> : <span className="flex items-center gap-1.5 text-red-600 font-bold"><div className="w-2 h-2 rounded-full bg-red-500"></div> Closed</span>}
             </div>
             {shop.phone && (
               <>
@@ -186,7 +186,7 @@ export function ShopProfile() {
           <div className="border-t border-slate-100 pt-8 mt-8">
             <Link 
               to={`/shop/${shopId}/upload`} 
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-indigo-600 text-white px-8 py-4 rounded-xl font-bold tracking-wide hover:bg-indigo-500 transition shadow-sm"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 active:scale-[0.98] text-white px-8 py-3.5 rounded-xl font-bold tracking-wide transition shadow-sm shadow-indigo-600/25 hover:shadow-md hover:shadow-indigo-600/30 text-sm"
             >
               <FileUp className="w-5 h-5" /> Start Print Order
             </Link>
@@ -194,7 +194,7 @@ export function ShopProfile() {
         </div>
       </div>
 
-      <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
+      <div className="bg-white rounded-3xl shadow-sm border border-slate-200/80 p-6 sm:p-8">
         <h2 className="text-xl font-bold mb-6 flex items-center gap-2"><Star className="w-5 h-5 text-indigo-600" /> Customer Reviews</h2>
         <div className="space-y-6">
           <div className="border-b border-slate-100 pb-6">

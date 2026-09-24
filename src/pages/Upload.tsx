@@ -455,14 +455,14 @@ export function Upload() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto space-y-6 pb-16">
+    <div className="max-w-5xl mx-auto space-y-6 pb-16 animate-fade-in">
       {/* Top Header with Shop Info */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white p-5 rounded-3xl border border-slate-200 shadow-xs">
+      <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 bg-white p-5 sm:p-6 rounded-3xl border border-slate-200/80 shadow-xs">
         <div>
           <span className="text-[10px] font-bold text-indigo-600 uppercase tracking-widest block mb-0.5">
             Print Order For
           </span>
-          <h1 className="text-xl font-black text-slate-900 notranslate" translate="no">
+          <h1 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight notranslate" translate="no">
             {shop.name}
           </h1>
           <p className="text-xs text-slate-500 mt-0.5">
@@ -471,13 +471,13 @@ export function Upload() {
         </div>
 
         {/* Mode Selector Tabs (User Request: option to print documents & option to print ID card) */}
-        <div className="flex items-center p-1 bg-slate-100 rounded-2xl border border-slate-200 w-full sm:w-auto">
+        <div className="flex items-center p-1 bg-slate-100/90 rounded-2xl border border-slate-200/80 w-full sm:w-auto shadow-2xs">
           <button
             type="button"
             onClick={() => setActiveTab('upload')}
             className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold transition cursor-pointer ${
               activeTab === 'upload'
-                ? 'bg-white text-indigo-700 shadow-sm'
+                ? 'bg-white text-indigo-700 shadow-xs'
                 : 'text-slate-600 hover:text-slate-900'
             }`}
           >
@@ -495,7 +495,7 @@ export function Upload() {
             onClick={() => setActiveTab('idcard')}
             className={`flex-1 sm:flex-initial flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs font-bold transition cursor-pointer ${
               activeTab === 'idcard'
-                ? 'bg-indigo-600 text-white shadow-sm'
+                ? 'bg-indigo-600 text-white shadow-xs'
                 : 'text-slate-600 hover:text-indigo-600'
             }`}
           >
@@ -520,10 +520,10 @@ export function Upload() {
       {activeTab === 'upload' && (
         <div className="space-y-6">
           {/* Main Upload Drop Area */}
-          <div className="bg-white rounded-3xl border border-slate-200 p-6 md:p-8 shadow-xs">
+          <div className="bg-white rounded-3xl border border-slate-200/80 p-6 md:p-8 shadow-xs">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-4">
               <div>
-                <h2 className="text-xl font-black text-slate-900">Upload Your Documents</h2>
+                <h2 className="text-xl font-black text-slate-900 tracking-tight">Upload Your Documents</h2>
                 <p className="text-xs text-slate-500 mt-0.5">
                   Select PDFs, Word files, or pictures. All pages will be formatted for printing.
                 </p>
@@ -533,25 +533,25 @@ export function Upload() {
               <button
                 type="button"
                 onClick={() => setActiveTab('idcard')}
-                className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs font-bold rounded-xl transition border border-indigo-200 cursor-pointer"
+                className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 text-xs font-bold rounded-xl transition border border-indigo-200/80 cursor-pointer shadow-2xs"
               >
                 <Shield className="w-3.5 h-3.5 text-indigo-600" />
                 <span>Need to Print ID Card? Switch here</span>
               </button>
             </div>
 
-            <label className={`border-2 border-dashed ${processingFiles ? 'border-indigo-300 bg-indigo-50/50' : 'border-slate-300 bg-slate-50/60 hover:bg-indigo-50/30'} rounded-2xl p-8 sm:p-10 flex flex-col items-center justify-center cursor-pointer hover:border-indigo-500 transition group`}>
+            <label className={`border-2 border-dashed ${processingFiles ? 'border-indigo-400 bg-indigo-50/50' : 'border-slate-300/80 bg-slate-50/50 hover:bg-indigo-50/30 hover:border-indigo-400'} rounded-2xl p-8 sm:p-12 flex flex-col items-center justify-center cursor-pointer transition-all duration-200 group`}>
               {processingFiles ? (
                 <Loader2 className="w-12 h-12 text-indigo-600 animate-spin mb-4" />
               ) : (
-                <div className="w-16 h-16 rounded-2xl bg-white border border-slate-200 flex items-center justify-center mb-4 group-hover:scale-105 group-hover:border-indigo-300 transition shadow-xs">
+                <div className="w-16 h-16 rounded-2xl bg-white border border-slate-200/80 flex items-center justify-center mb-4 group-hover:scale-105 group-hover:border-indigo-300 group-hover:shadow-sm transition-all duration-200 shadow-2xs">
                   <UploadCloud className="w-8 h-8 text-indigo-600" />
                 </div>
               )}
               <span className="font-bold text-slate-800 text-base text-center">
                 {processingFiles ? 'Analyzing & preparing files...' : 'Click or drag files here to upload'}
               </span>
-              <span className="text-xs text-slate-500 mt-1.5 text-center">
+              <span className="text-xs text-slate-500 mt-1.5 text-center font-medium">
                 Supported: PDF, Word (DOCX/DOC), JPG, PNG up to 30MB
               </span>
               <input 
@@ -1087,17 +1087,17 @@ export function Upload() {
               </div>
 
               {/* Checkout / Review Sticky Summary Bar */}
-              <div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-6">
+              <div className="bg-white p-6 rounded-3xl shadow-sm border border-slate-200/80 flex flex-col md:flex-row items-center justify-between gap-6">
                 <div>
                   <div className="flex items-center gap-2">
                     <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">
                       Estimated Order Total
                     </span>
-                    <span className="bg-emerald-100 text-emerald-700 text-[10px] font-black px-2 py-0.5 rounded-full uppercase">
+                    <span className="bg-emerald-50 text-emerald-700 border border-emerald-200/60 text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider">
                       Instant Pricing
                     </span>
                   </div>
-                  <h3 className="text-3xl font-black text-slate-900 mt-1">
+                  <h3 className="text-3xl sm:text-4xl font-black text-slate-900 mt-1 tracking-tight">
                     ₹{calculateTotalPrice().toFixed(2)}
                   </h3>
                   <p className="text-xs text-slate-500 mt-0.5">
@@ -1109,7 +1109,7 @@ export function Upload() {
                   <button
                     type="button"
                     onClick={() => setActiveTab('idcard')}
-                    className="flex-1 md:flex-initial flex items-center justify-center gap-2 px-5 py-4 rounded-2xl border border-indigo-200 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold text-sm transition cursor-pointer"
+                    className="flex-1 md:flex-initial flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl border border-indigo-200/80 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 font-bold text-xs sm:text-sm transition cursor-pointer shadow-2xs"
                   >
                     <Shield className="w-4 h-4" />
                     <span>+ Add ID Card</span>
@@ -1118,7 +1118,7 @@ export function Upload() {
                   <button 
                     onClick={handleContinue}
                     disabled={isUploading}
-                    className="flex-1 md:flex-initial flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white px-8 py-4 rounded-2xl font-black text-sm tracking-wide transition-all shadow-md hover:shadow-lg disabled:bg-indigo-400 disabled:cursor-not-allowed cursor-pointer"
+                    className="flex-1 md:flex-initial flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 active:scale-[0.98] text-white px-8 py-3.5 rounded-2xl font-black text-xs sm:text-sm tracking-wide transition-all shadow-md shadow-indigo-600/20 hover:shadow-lg hover:shadow-indigo-600/25 disabled:bg-indigo-400 disabled:cursor-not-allowed cursor-pointer"
                   >
                     {isUploading ? (
                       <>

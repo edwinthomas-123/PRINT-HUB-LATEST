@@ -83,30 +83,59 @@ export function Track() {
   const currentIndex = statuses.indexOf(order.status);
 
   return (
-    <div className="max-w-md mx-auto bg-white p-8 rounded-xl shadow-sm border border-slate-200 text-center">
-      <h1 className="text-xl font-bold mb-2">Order Status</h1>
-      <p className="text-slate-500 mb-8 text-sm">Token: <span className="text-slate-900 font-mono font-bold text-base bg-slate-100 px-2 py-0.5 rounded ml-1">{order.token}</span></p>
+    <div className="max-w-lg mx-auto bg-white p-6 sm:p-8 rounded-3xl shadow-sm border border-slate-200/80 text-center animate-fade-in">
+      <h1 className="text-2xl font-black text-slate-900 mb-1 tracking-tight">Order Status</h1>
+      <p className="text-slate-500 mb-8 text-xs sm:text-sm">
+        Token: <span className="text-indigo-600 font-mono font-black text-base sm:text-lg bg-indigo-50 border border-indigo-200/80 px-3 py-1 rounded-xl ml-1 shadow-2xs tracking-wider inline-block">{order.token}</span>
+      </p>
 
-      <div className="space-y-6 text-left">
+      <div className="space-y-6 text-left relative pl-1">
         {statuses.map((s, i) => {
           const isPast = i < currentIndex;
           const isCurrent = i === currentIndex;
           
           return (
-            <div key={s} className={`flex items-center gap-4 text-sm ${isPast || isCurrent ? 'text-slate-900' : 'text-slate-400'}`}>
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center ${isPast ? 'bg-green-50 text-green-600' : isCurrent ? 'bg-indigo-50 text-indigo-600' : 'bg-slate-100'}`}>
+            <div key={s} className={`relative flex items-center gap-4 text-sm ${isPast || isCurrent ? 'text-slate-900' : 'text-slate-400'}`}>
+              {/* Connecting line */}
+              {i < statuses.length - 1 && (
+                <div 
+                  className={`absolute left-[15px] top-[30px] w-[2px] h-[calc(100%+8px)] z-0 ${
+                    i < currentIndex ? 'bg-emerald-500' : 'bg-slate-200'
+                  }`} 
+                />
+              )}
+              
+              <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 z-10 transition-all ${
+                isPast 
+                  ? 'bg-emerald-50 text-emerald-600 ring-2 ring-emerald-500/20 shadow-2xs' 
+                  : isCurrent 
+                  ? 'bg-indigo-600 text-white ring-4 ring-indigo-500/25 shadow-sm' 
+                  : 'bg-slate-100 text-slate-400'
+              }`}>
                 {isPast ? <CheckCircle2 className="w-4 h-4" /> : <Clock className="w-4 h-4" />}
               </div>
-              <span className={`font-medium ${isCurrent ? 'font-bold' : ''}`}>{s}</span>
+              <span className={`transition-all ${
+                isCurrent 
+                  ? 'font-bold text-indigo-700 bg-indigo-50/80 px-2.5 py-1 rounded-lg border border-indigo-150' 
+                  : isPast 
+                  ? 'font-medium text-slate-800' 
+                  : 'text-slate-400 font-normal'
+              }`}>
+                {s}
+              </span>
             </div>
           );
         })}
       </div>
       
       {order.status === 'Ready for Pickup' && (
-        <div className="mt-8 p-4 bg-green-50 border border-green-200 rounded-lg text-green-800 text-sm">
-          <p className="font-bold mb-1">Ready for Collection!</p>
-          <p>Show your token <strong className="font-mono bg-white px-1 rounded">{order.token}</strong> at the shop to collect your prints.</p>
+        <div className="mt-8 p-5 bg-gradient-to-r from-emerald-50 to-teal-50 border border-emerald-200/80 rounded-2xl text-emerald-900 text-sm shadow-xs animate-fade-in text-left">
+          <p className="font-bold mb-1 flex items-center gap-1.5 text-emerald-800 text-base">
+            <CheckCircle2 className="w-5 h-5 text-emerald-600" /> Ready for Collection!
+          </p>
+          <p className="text-emerald-700 text-xs sm:text-sm mt-1 leading-relaxed">
+            Show your token <strong className="font-mono bg-white border border-emerald-300 px-2 py-0.5 rounded text-emerald-900 font-bold">{order.token}</strong> at the shop to collect your prints.
+          </p>
         </div>
       )}
     </div>

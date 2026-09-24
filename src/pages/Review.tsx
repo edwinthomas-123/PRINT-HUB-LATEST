@@ -283,23 +283,23 @@ export function Review() {
   };
 
   return (
-    <div className="max-w-4xl mx-auto pb-12">
-      <button onClick={() => navigate(`/shop/${shopId}/upload`, { state: { uploadFiles: state.uploadFiles } })} className="flex items-center gap-2 text-slate-500 hover:text-slate-900 mb-6 transition">
+    <div className="max-w-4xl mx-auto pb-12 animate-fade-in">
+      <button onClick={() => navigate(`/shop/${shopId}/upload`, { state: { uploadFiles: state.uploadFiles } })} className="inline-flex items-center gap-2 text-xs font-semibold text-slate-500 hover:text-slate-800 mb-5 px-3 py-1.5 rounded-lg hover:bg-slate-100 transition-colors cursor-pointer">
         <ArrowLeft className="w-4 h-4" /> Back to Upload
       </button>
 
-      <div className="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-        <div className="p-8 border-b border-slate-100 flex items-center justify-between">
+      <div className="bg-white rounded-3xl shadow-sm border border-slate-200/80 overflow-hidden">
+        <div className="p-6 sm:p-8 border-b border-slate-100 bg-slate-50/50 flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-bold text-slate-900 mb-2">Review Your Order</h1>
-            <p className="text-slate-500">Please review your documents and print settings before payment.</p>
+            <h1 className="text-xl sm:text-2xl font-black text-slate-900 mb-1 tracking-tight">Review Your Order</h1>
+            <p className="text-xs sm:text-sm text-slate-500">Please review your documents and print settings before payment.</p>
           </div>
         </div>
 
-        <div className="p-8 space-y-8">
+        <div className="p-6 sm:p-8 space-y-8">
           
           {limitReached && (
-            <div className="bg-rose-50 border-2 border-rose-200 rounded-2xl p-5 flex flex-col sm:flex-row items-start justify-between gap-4 animate-fade-in shadow-sm">
+            <div className="bg-rose-50 border-2 border-rose-200 rounded-2xl p-5 flex flex-col sm:flex-row items-start justify-between gap-4 animate-fade-in shadow-xs">
               <div className="flex items-start gap-3">
                 <AlertCircle className="w-6 h-6 text-rose-600 shrink-0 mt-0.5" />
                 <div>
@@ -324,11 +324,11 @@ export function Review() {
           )}
 
           {error && !limitReached && (
-            <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start gap-3">
+            <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4.5 flex items-start gap-3">
               <AlertCircle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
               <div>
-                <h4 className="font-semibold text-amber-800">Connection Note</h4>
-                <p className="text-sm text-amber-700 mt-1">
+                <h4 className="font-semibold text-amber-800 text-sm">Connection Note</h4>
+                <p className="text-xs sm:text-sm text-amber-700 mt-1 leading-relaxed">
                   {error}
                 </p>
               </div>
@@ -336,11 +336,11 @@ export function Review() {
           )}
 
           {!isShopOpen && (
-            <div className="bg-amber-50 border border-amber-200 rounded-xl p-4 flex items-start gap-3">
+            <div className="bg-amber-50 border border-amber-200 rounded-2xl p-4.5 flex items-start gap-3">
               <AlertCircle className="w-5 h-5 text-amber-600 shrink-0 mt-0.5" />
               <div>
-                <h4 className="font-semibold text-amber-800">The shop is closed right now.</h4>
-                <p className="text-sm text-amber-700 mt-1">
+                <h4 className="font-semibold text-amber-800 text-sm">The shop is closed right now.</h4>
+                <p className="text-xs sm:text-sm text-amber-700 mt-1 leading-relaxed">
                   Your files will be saved in the queue. You can still pay and place the order. 
                   Printing will begin automatically when the shop opens.
                 </p>
@@ -349,62 +349,64 @@ export function Review() {
           )}
 
           <div className="space-y-4">
-            <h3 className="font-semibold text-slate-900 text-sm uppercase tracking-wider">Documents & Settings</h3>
+            <h3 className="font-bold text-slate-900 text-xs uppercase tracking-wider">Documents & Settings</h3>
             
             <div className="space-y-4">
               {state.uploadFiles.map((uf, idx) => (
-                <div key={idx} className="bg-slate-50 border border-slate-200 rounded-xl overflow-hidden">
-                  <div className="p-4 bg-white border-b border-slate-100 flex items-center justify-between">
+                <div key={idx} className="bg-slate-50/70 border border-slate-200/80 rounded-2xl overflow-hidden hover:border-slate-300 transition-colors shadow-2xs">
+                  <div className="p-4 sm:p-5 bg-white border-b border-slate-100 flex items-center justify-between gap-4">
                     <div className="flex items-center gap-3 overflow-hidden">
-                      <div className="bg-indigo-50 p-2 rounded-lg shadow-sm text-indigo-600 shrink-0"><FileText className="w-5 h-5" /></div>
+                      <div className="bg-indigo-50 border border-indigo-100 p-2.5 rounded-xl shadow-2xs text-indigo-600 shrink-0">
+                        <FileText className="w-5 h-5" />
+                      </div>
                       <div className="overflow-hidden">
-                        <div className="font-medium text-slate-900 truncate max-w-[200px] sm:max-w-md">{uf.fileName}</div>
-                        <div className="text-xs text-slate-500">{(uf.fileSize / 1024 / 1024).toFixed(2)} MB • {uf.pagesCount} {uf.pagesCount === 1 ? 'page' : 'pages'}</div>
+                        <div className="font-bold text-slate-900 truncate max-w-[200px] sm:max-w-md text-sm">{uf.fileName}</div>
+                        <div className="text-xs text-slate-500 font-medium mt-0.5">{(uf.fileSize / 1024 / 1024).toFixed(2)} MB • {uf.pagesCount} {uf.pagesCount === 1 ? 'page' : 'pages'}</div>
                       </div>
                     </div>
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-3">
                       <div className="text-right hidden sm:block">
-                        <span className="font-bold text-slate-900">₹{uf.price.toFixed(2)}</span>
+                        <span className="font-black text-slate-900 text-base">₹{uf.price.toFixed(2)}</span>
                       </div>
                       <button 
                         onClick={() => navigate(`/shop/${shopId}/upload`, { state: { uploadFiles: state.uploadFiles } })}
-                        className="flex items-center gap-1.5 text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-lg transition"
+                        className="flex items-center gap-1.5 text-xs font-semibold text-slate-600 bg-slate-100 hover:bg-slate-200 px-3 py-1.5 rounded-xl transition cursor-pointer"
                       >
                         Edit Settings
                       </button>
                       <button 
                         onClick={() => openPreview(uf.file)}
-                        className="flex items-center gap-1.5 text-xs font-semibold text-indigo-600 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-lg transition"
+                        className="flex items-center gap-1.5 text-xs font-semibold text-indigo-600 bg-indigo-50 hover:bg-indigo-100 px-3 py-1.5 rounded-xl transition cursor-pointer"
                       >
                         <Eye className="w-4 h-4" /> Preview
                       </button>
                     </div>
                   </div>
                   
-                  <div className="p-4">
-                    <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
-                      <div className="flex items-center gap-1.5">
-                        <span className="text-slate-500">Color:</span>
-                        <span className="font-semibold text-slate-900">{uf.settings.color}</span>
+                  <div className="p-4 sm:p-5">
+                    <div className="flex flex-wrap gap-x-6 gap-y-2.5 text-xs sm:text-sm">
+                      <div className="flex items-center gap-1.5 bg-white border border-slate-200/80 px-2.5 py-1 rounded-lg">
+                        <span className="text-slate-400 font-medium">Color:</span>
+                        <span className="font-semibold text-slate-800">{uf.settings.color}</span>
+                      </div>
+                      <div className="flex items-center gap-1.5 bg-white border border-slate-200/80 px-2.5 py-1 rounded-lg">
+                        <span className="text-slate-400 font-medium">Orientation:</span>
+                        <span className="font-semibold text-slate-800">{uf.settings.orientation}</span>
+                      </div>
+                      <div className="flex items-center gap-1.5 bg-white border border-slate-200/80 px-2.5 py-1 rounded-lg">
+                        <span className="text-slate-400 font-medium">Sides:</span>
+                        <span className="font-semibold text-slate-800">{uf.settings.sides}</span>
+                      </div>
+                      <div className="flex items-center gap-1.5 bg-white border border-slate-200/80 px-2.5 py-1 rounded-lg">
+                        <span className="text-slate-400 font-medium">Pages:</span>
+                        <span className="font-semibold text-slate-800">{uf.settings.pages}</span>
+                      </div>
+                      <div className="flex items-center gap-1.5 bg-white border border-slate-200/80 px-2.5 py-1 rounded-lg">
+                        <span className="text-slate-400 font-medium">Copies:</span>
+                        <span className="font-semibold text-slate-800">{uf.settings.copies}</span>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <span className="text-slate-500">Orientation:</span>
-                        <span className="font-semibold text-slate-900">{uf.settings.orientation}</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <span className="text-slate-500">Sides:</span>
-                        <span className="font-semibold text-slate-900">{uf.settings.sides}</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <span className="text-slate-500">Pages:</span>
-                        <span className="font-semibold text-slate-900">{uf.settings.pages}</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <span className="text-slate-500">Copies:</span>
-                        <span className="font-semibold text-slate-900">{uf.settings.copies}</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <span className={`font-semibold px-2 py-0.5 rounded-md text-xs border ${
+                        <span className={`font-semibold px-2.5 py-1 rounded-lg text-xs border ${
                           uf.settings.fitToPage !== false
                             ? 'text-emerald-700 bg-emerald-50 border-emerald-200/60'
                             : 'text-amber-700 bg-amber-50 border-amber-200/60'
@@ -414,7 +416,7 @@ export function Review() {
                       </div>
                       {uf.settings.isIdCard && (
                         <div className="flex items-center gap-1.5">
-                          <span className="font-bold text-indigo-700 bg-indigo-50 px-2 py-0.5 rounded text-xs border border-indigo-200/60">
+                          <span className="font-bold text-indigo-700 bg-indigo-50 px-2.5 py-1 rounded-lg text-xs border border-indigo-200/60">
                             🪪 ID Card Curved Corners
                           </span>
                         </div>
@@ -426,10 +428,10 @@ export function Review() {
             </div>
           </div>
 
-          <div className="border-t border-slate-200 pt-6 mt-8 flex flex-col items-end gap-6">
-            <div className="w-full flex items-center justify-between mb-4">
-              <span className="text-slate-500 font-medium">Order Total:</span>
-              <span className="text-3xl font-black text-slate-900">₹{state.price.toFixed(2)}</span>
+          <div className="border-t border-slate-200/80 pt-6 mt-8 flex flex-col items-end gap-6">
+            <div className="w-full flex items-center justify-between mb-2">
+              <span className="text-slate-500 font-semibold text-base">Order Total:</span>
+              <span className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">₹{state.price.toFixed(2)}</span>
             </div>
             
             <div className="w-full flex flex-col sm:flex-row items-center justify-end gap-3">
@@ -437,14 +439,14 @@ export function Review() {
                 <>
                   <Link
                     to="/pricing"
-                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-bold tracking-wide transition bg-rose-600 hover:bg-rose-700 text-white shadow-md cursor-pointer"
+                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold tracking-wide transition bg-rose-600 hover:bg-rose-700 text-white shadow-md cursor-pointer"
                   >
                     <Sparkles className="w-5 h-5" />
                     Upgrade Partner Plan
                   </Link>
                   <button 
                     disabled
-                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-bold tracking-wide transition bg-slate-200 text-slate-400 cursor-not-allowed"
+                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold tracking-wide transition bg-slate-200 text-slate-400 cursor-not-allowed"
                     title="This shop has reached its monthly order limit."
                   >
                     <CreditCard className="w-5 h-5" />
@@ -456,19 +458,19 @@ export function Review() {
                   <button 
                     onClick={handlePayAtCounter}
                     disabled={loading}
-                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-bold tracking-wide transition border-2 border-slate-300 hover:border-slate-400 bg-white text-slate-800 hover:bg-slate-50 cursor-pointer shadow-sm"
+                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-xs sm:text-sm tracking-wide transition border-2 border-slate-300 hover:border-slate-400 bg-white text-slate-800 hover:bg-slate-50 active:scale-[0.98] cursor-pointer shadow-xs"
                   >
-                    {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <QrCode className="w-5 h-5 text-indigo-600" />}
+                    {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <QrCode className="w-4 h-4 text-indigo-600" />}
                     Pay at Counter / Pick Up
                   </button>
                   <button 
                     onClick={() => handleRazorpayPayment()}
                     disabled={loading}
-                    className={`w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-bold tracking-wide transition cursor-pointer shadow-md ${
-                      loading ? 'bg-indigo-400 text-white' : 'bg-indigo-600 text-white hover:bg-indigo-500'
+                    className={`w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl font-bold text-xs sm:text-sm tracking-wide transition active:scale-[0.98] cursor-pointer shadow-md shadow-indigo-600/20 hover:shadow-lg hover:shadow-indigo-600/25 ${
+                      loading ? 'bg-indigo-400 text-white' : 'bg-indigo-600 text-white hover:bg-indigo-700'
                     }`}
                   >
-                    {loading ? <Loader2 className="w-5 h-5 animate-spin" /> : <CreditCard className="w-5 h-5" />}
+                    {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <CreditCard className="w-4 h-4" />}
                     Pay Online via Razorpay (UPI / Cards)
                   </button>
                 </>

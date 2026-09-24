@@ -257,45 +257,48 @@ export function Pricing({ user }: { user: User | null }) {
         </Link>
         {shop && (
           <div className="flex items-center gap-2">
-            <span className="text-xs text-slate-500">Active Shop:</span>
-            <span className="text-xs font-bold text-slate-800 bg-slate-100 px-2.5 py-1 rounded-full">{shop.name}</span>
+            <span className="text-xs text-slate-500 font-medium">Active Shop:</span>
+            <span className="text-xs font-bold text-slate-800 bg-white border border-slate-200 px-3 py-1 rounded-full shadow-xs flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+              {shop.name}
+            </span>
           </div>
         )}
       </div>
 
       {/* Hero Header */}
       <div className="text-center max-w-3xl mx-auto space-y-4">
-        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-indigo-50 border border-indigo-150 text-indigo-700 text-xs font-bold">
-          <Sparkles className="w-3.5 h-3.5" /> Transparent Plans for Print Shop Partners
+        <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-indigo-50 border border-indigo-200/80 text-indigo-700 text-xs font-bold shadow-xs">
+          <Sparkles className="w-3.5 h-3.5 text-indigo-600" /> Transparent Plans for Print Shop Partners
         </div>
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-950 tracking-tight">
           Simple, Predictable Plans for Every Print Business
         </h1>
-        <p className="text-base text-slate-600 leading-relaxed">
+        <p className="text-base text-slate-600 leading-relaxed max-w-2xl mx-auto">
           From local neighborhood photocopy counters to enterprise commercial printing centers. Start for free and upgrade as your monthly order volume expands.
         </p>
 
         <div className="flex flex-wrap items-center justify-center gap-2.5 pt-1 text-xs text-slate-500 font-medium">
-          <span className="flex items-center gap-1.5 bg-white border border-slate-200 px-3 py-1 rounded-full shadow-xs text-indigo-700 font-semibold">
+          <span className="flex items-center gap-1.5 bg-white border border-slate-200/80 px-3 py-1.5 rounded-full shadow-xs text-indigo-700 font-semibold">
             <Shield className="w-3.5 h-3.5 text-emerald-600" /> Routed Securely via Razorpay
           </span>
-          <span className="flex items-center gap-1.5 bg-white border border-slate-200 px-3 py-1 rounded-full shadow-xs">
+          <span className="flex items-center gap-1.5 bg-white border border-slate-200/80 px-3 py-1.5 rounded-full shadow-xs text-slate-700">
             <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" /> Instant Activation
           </span>
-          <span className="flex items-center gap-1.5 bg-white border border-slate-200 px-3 py-1 rounded-full shadow-xs">
+          <span className="flex items-center gap-1.5 bg-white border border-slate-200/80 px-3 py-1.5 rounded-full shadow-xs text-slate-700">
             <CreditCard className="w-3.5 h-3.5 text-indigo-600" /> UPI, Cards, NetBanking & Wallets
           </span>
         </div>
       </div>
 
       {/* Recommended Upgrade Path Visualization */}
-      <div className="bg-gradient-to-r from-slate-900 via-indigo-950 to-slate-900 rounded-3xl p-6 text-white shadow-xl border border-slate-800">
+      <div className="bg-gradient-to-r from-slate-950 via-indigo-950 to-slate-900 rounded-3xl p-6 sm:p-7 text-white shadow-xl shadow-slate-200 border border-slate-800">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
           <div>
             <span className="text-[10px] uppercase font-extrabold tracking-widest text-indigo-400">RECOMMENDED UPGRADE PATH</span>
             <h3 className="text-lg font-bold text-white">Grow Seamlessly With Your Customer Demand</h3>
           </div>
-          <span className="text-xs text-slate-400 bg-white/10 px-3 py-1 rounded-full w-fit">
+          <span className="text-xs text-slate-300 bg-white/10 px-3 py-1 rounded-full w-fit border border-white/10">
             Automatic Monthly Counter Resets
           </span>
         </div>
@@ -367,10 +370,10 @@ export function Pricing({ user }: { user: User | null }) {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
         
         {/* 1. FREE PLAN */}
-        <div className={`bg-white rounded-3xl border p-6 flex flex-col justify-between transition-all duration-200 shadow-sm relative ${
+        <div className={`bg-white rounded-3xl border p-6 sm:p-7 flex flex-col justify-between transition-all duration-200 shadow-sm relative ${
           currentPlanId === 'free' 
-            ? 'border-indigo-600 ring-2 ring-indigo-600/20' 
-            : 'border-slate-200 hover:border-slate-300 hover:shadow-md'
+            ? 'border-indigo-600 ring-2 ring-indigo-600/20 shadow-md' 
+            : 'border-slate-200/90 hover:border-slate-300 hover:shadow-md'
         }`}>
           {currentPlanId === 'free' && (
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-900 text-white text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm">
@@ -385,7 +388,7 @@ export function Pricing({ user }: { user: User | null }) {
               <span className="text-3xl sm:text-4xl font-black text-slate-950">₹0</span>
               <span className="text-slate-400 font-bold text-xs">/month</span>
             </div>
-            <div className="bg-slate-50 border border-slate-100 rounded-xl p-3 mb-6">
+            <div className="bg-slate-50/80 border border-slate-200/70 rounded-2xl p-4 mb-6">
               <span className="block text-[11px] font-extrabold text-slate-800 uppercase tracking-wide">Capacity</span>
               <span className="text-sm font-bold text-indigo-700">10 orders / month</span>
               <p className="text-[11px] text-slate-500 mt-1">Essential basic PrintHub features to receive and fulfill orders.</p>
@@ -422,7 +425,7 @@ export function Pricing({ user }: { user: User | null }) {
             {currentPlanId === 'free' ? (
               <button 
                 disabled 
-                className="w-full bg-slate-100 text-slate-500 font-bold py-3 rounded-2xl text-xs cursor-default flex items-center justify-center gap-1.5"
+                className="w-full bg-slate-100 text-slate-500 font-bold py-3.5 rounded-2xl text-xs cursor-default flex items-center justify-center gap-1.5"
               >
                 <CheckCircle2 className="w-4 h-4 text-slate-500" /> Current Plan
               </button>
@@ -430,7 +433,7 @@ export function Pricing({ user }: { user: User | null }) {
               <button 
                 onClick={() => handleSelectPlan('free')}
                 disabled={upgradingPlan !== null}
-                className="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3 rounded-2xl text-xs transition cursor-pointer"
+                className="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3.5 rounded-2xl text-xs transition cursor-pointer active:scale-[0.99]"
               >
                 Downgrade to Free
               </button>
@@ -440,10 +443,10 @@ export function Pricing({ user }: { user: User | null }) {
         </div>
 
         {/* 2. STARTER PLAN */}
-        <div className={`bg-white rounded-3xl border p-6 flex flex-col justify-between transition-all duration-200 shadow-sm relative ${
+        <div className={`bg-white rounded-3xl border p-6 sm:p-7 flex flex-col justify-between transition-all duration-200 shadow-sm relative ${
           currentPlanId === 'starter' 
-            ? 'border-indigo-600 ring-2 ring-indigo-600/20' 
-            : 'border-slate-200 hover:border-indigo-300 hover:shadow-md'
+            ? 'border-indigo-600 ring-2 ring-indigo-600/20 shadow-md' 
+            : 'border-slate-200/90 hover:border-indigo-300 hover:shadow-md'
         }`}>
           {currentPlanId === 'starter' && (
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-[10px] font-extrabold uppercase tracking-widest px-3 py-1 rounded-full shadow-sm">
@@ -453,13 +456,13 @@ export function Pricing({ user }: { user: User | null }) {
           <div>
             <div className="flex items-center justify-between mb-3">
               <span className="text-xs font-black uppercase tracking-wider text-indigo-600">STARTER</span>
-              <span className="text-[10px] bg-indigo-50 text-indigo-700 font-bold px-2 py-0.5 rounded-full">Step 2</span>
+              <span className="text-[10px] bg-indigo-50 border border-indigo-150 text-indigo-700 font-bold px-2 py-0.5 rounded-full">Step 2</span>
             </div>
             <div className="mb-4">
               <span className="text-3xl sm:text-4xl font-black text-slate-950">₹99</span>
               <span className="text-slate-400 font-bold text-xs">/month</span>
             </div>
-            <div className="bg-indigo-50/60 border border-indigo-100 rounded-xl p-3 mb-6">
+            <div className="bg-indigo-50/70 border border-indigo-100 rounded-2xl p-4 mb-6">
               <span className="block text-[11px] font-extrabold text-indigo-900 uppercase tracking-wide">Capacity</span>
               <span className="text-sm font-bold text-indigo-700">200 orders / month</span>
               <p className="text-[11px] text-slate-600 mt-1">Ideal for active neighborhood stationery & photocopy shops.</p>
@@ -496,7 +499,7 @@ export function Pricing({ user }: { user: User | null }) {
             {currentPlanId === 'starter' ? (
               <button 
                 disabled 
-                className="w-full bg-slate-100 text-slate-500 font-bold py-3 rounded-2xl text-xs cursor-default flex items-center justify-center gap-1.5"
+                className="w-full bg-slate-100 text-slate-500 font-bold py-3.5 rounded-2xl text-xs cursor-default flex items-center justify-center gap-1.5"
               >
                 <CheckCircle2 className="w-4 h-4 text-slate-500" /> Current Plan
               </button>
@@ -504,7 +507,7 @@ export function Pricing({ user }: { user: User | null }) {
               <button 
                 onClick={() => handleSelectPlan('starter')}
                 disabled={upgradingPlan !== null}
-                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-2xl text-xs transition cursor-pointer shadow-md shadow-indigo-150"
+                className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3.5 rounded-2xl text-xs transition cursor-pointer shadow-md shadow-indigo-150 active:scale-[0.99]"
               >
                 {upgradingPlan === 'starter' ? <Loader2 className="w-4 h-4 animate-spin mx-auto" /> : 'Upgrade to Starter'}
               </button>
@@ -514,25 +517,25 @@ export function Pricing({ user }: { user: User | null }) {
         </div>
 
         {/* 3. BUSINESS PLAN (POPULAR) */}
-        <div className={`bg-white rounded-3xl border-2 p-6 flex flex-col justify-between transition-all duration-200 shadow-lg relative ${
+        <div className={`bg-white rounded-3xl border-2 p-6 sm:p-7 flex flex-col justify-between transition-all duration-200 shadow-xl shadow-indigo-100/50 relative ${
           currentPlanId === 'business' 
             ? 'border-indigo-600 ring-2 ring-indigo-600/30' 
-            : 'border-indigo-500 hover:shadow-xl'
+            : 'border-indigo-500 hover:shadow-2xl'
         }`}>
-          <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 to-indigo-600 text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full shadow-md flex items-center gap-1">
+          <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-amber-500 to-indigo-600 text-white text-[10px] font-black uppercase tracking-widest px-3.5 py-1 rounded-full shadow-md flex items-center gap-1.5">
             <Flame className="w-3 h-3 fill-amber-300" /> MOST POPULAR
           </div>
 
           <div>
             <div className="flex items-center justify-between mb-3 mt-1">
               <span className="text-xs font-black uppercase tracking-wider text-indigo-700">BUSINESS</span>
-              <span className="text-[10px] bg-amber-100 text-amber-900 font-extrabold px-2 py-0.5 rounded-full">Step 3</span>
+              <span className="text-[10px] bg-amber-100 text-amber-900 font-extrabold px-2 py-0.5 rounded-full border border-amber-200">Step 3</span>
             </div>
             <div className="mb-4">
               <span className="text-3xl sm:text-4xl font-black text-slate-950">₹499</span>
               <span className="text-slate-400 font-bold text-xs">/month</span>
             </div>
-            <div className="bg-amber-50 border border-amber-200/80 rounded-xl p-3 mb-6">
+            <div className="bg-amber-50/80 border border-amber-200/80 rounded-2xl p-4 mb-6">
               <span className="block text-[11px] font-extrabold text-amber-950 uppercase tracking-wide">Capacity</span>
               <span className="text-sm font-bold text-amber-900">1,000 orders / month</span>
               <p className="text-[11px] text-amber-800 mt-1">For high-traffic campus counters & commercial print hubs.</p>
@@ -581,7 +584,7 @@ export function Pricing({ user }: { user: User | null }) {
               <button 
                 onClick={() => handleSelectPlan('business')}
                 disabled={upgradingPlan !== null}
-                className="w-full bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 text-white font-black py-3.5 rounded-2xl text-xs transition cursor-pointer shadow-lg shadow-indigo-200"
+                className="w-full bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-500 hover:to-indigo-600 text-white font-black py-3.5 rounded-2xl text-xs transition cursor-pointer shadow-lg shadow-indigo-200 active:scale-[0.99]"
               >
                 {upgradingPlan === 'business' ? <Loader2 className="w-4 h-4 animate-spin mx-auto" /> : 'Upgrade to Business'}
               </button>
@@ -591,9 +594,9 @@ export function Pricing({ user }: { user: User | null }) {
         </div>
 
         {/* 4. BUSINESS PLUS PLAN */}
-        <div className={`bg-gradient-to-b from-slate-900 to-slate-950 text-white rounded-3xl border border-slate-800 p-6 flex flex-col justify-between transition-all duration-200 shadow-xl relative ${
+        <div className={`bg-gradient-to-b from-slate-900 via-slate-900 to-slate-950 text-white rounded-3xl border border-slate-800 p-6 sm:p-7 flex flex-col justify-between transition-all duration-200 shadow-xl relative ${
           currentPlanId === 'business_plus' 
-            ? 'ring-2 ring-emerald-500' 
+            ? 'ring-2 ring-emerald-500 shadow-emerald-950/40' 
             : 'hover:border-slate-700'
         }`}>
           {currentPlanId === 'business_plus' && (
@@ -605,13 +608,13 @@ export function Pricing({ user }: { user: User | null }) {
           <div>
             <div className="flex items-center justify-between mb-3">
               <span className="text-xs font-black uppercase tracking-wider text-emerald-400">BUSINESS PLUS</span>
-              <span className="text-[10px] bg-white/10 text-slate-300 font-bold px-2 py-0.5 rounded-full">Step 4</span>
+              <span className="text-[10px] bg-white/10 text-slate-300 font-bold px-2 py-0.5 rounded-full border border-white/10">Step 4</span>
             </div>
             <div className="mb-4">
               <span className="text-3xl sm:text-4xl font-black text-white">₹{businessPlusPrice}</span>
               <span className="text-slate-400 font-bold text-xs">/month</span>
             </div>
-            <div className="bg-white/10 border border-white/15 rounded-xl p-3 mb-6">
+            <div className="bg-white/10 border border-white/15 rounded-2xl p-4 mb-6">
               <span className="block text-[11px] font-extrabold text-emerald-300 uppercase tracking-wide">Capacity</span>
               <span className="text-sm font-bold text-white">1,000+ orders / High-Volume</span>
               <p className="text-[11px] text-slate-300 mt-1">No fixed hard limit. Designed for high-volume enterprise print factories.</p>
@@ -656,7 +659,7 @@ export function Pricing({ user }: { user: User | null }) {
             {currentPlanId === 'business_plus' ? (
               <button 
                 disabled 
-                className="w-full bg-white/10 text-emerald-300 font-bold py-3 rounded-2xl text-xs cursor-default flex items-center justify-center gap-1.5"
+                className="w-full bg-white/10 text-emerald-300 font-bold py-3.5 rounded-2xl text-xs cursor-default flex items-center justify-center gap-1.5"
               >
                 <CheckCircle2 className="w-4 h-4 text-emerald-400" /> Current Plan
               </button>
@@ -664,7 +667,7 @@ export function Pricing({ user }: { user: User | null }) {
               <button 
                 onClick={() => handleSelectPlan('business_plus')}
                 disabled={upgradingPlan !== null}
-                className="w-full bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-3 rounded-2xl text-xs transition cursor-pointer shadow-md shadow-emerald-900/50"
+                className="w-full bg-gradient-to-r from-emerald-400 to-teal-400 hover:from-emerald-300 hover:to-teal-300 text-slate-950 font-black py-3.5 rounded-2xl text-xs transition cursor-pointer shadow-md shadow-emerald-950/60 active:scale-[0.99]"
               >
                 {upgradingPlan === 'business_plus' ? <Loader2 className="w-4 h-4 animate-spin mx-auto" /> : 'Upgrade to Business Plus'}
               </button>
@@ -677,54 +680,54 @@ export function Pricing({ user }: { user: User | null }) {
 
       {/* Admin Settings to Configure Business Plus Price */}
       {shop && (
-        <div className="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm">
-          <div className="flex items-center justify-between border-b border-slate-100 pb-4 mb-4">
+        <div className="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-7 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-5 mb-5">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-indigo-50 text-indigo-600 rounded-xl">
+              <div className="p-2.5 bg-indigo-50 border border-indigo-100/60 text-indigo-600 rounded-2xl shadow-xs shrink-0">
                 <Settings className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="text-sm font-bold text-slate-900">Partner & Admin Plan Configuration</h3>
-                <p className="text-xs text-slate-500">Configure custom tier rates and billing preferences for your shop</p>
+                <h3 className="text-sm font-bold text-slate-900 tracking-tight">Partner & Admin Plan Configuration</h3>
+                <p className="text-xs text-slate-500 mt-0.5">Configure custom tier rates and billing preferences for your shop</p>
               </div>
             </div>
             <button
               type="button"
               onClick={() => setShowAdminConfig(!showAdminConfig)}
-              className="text-xs font-bold text-indigo-600 hover:text-indigo-800"
+              className="text-xs font-bold text-indigo-600 hover:text-indigo-700 bg-indigo-50/80 hover:bg-indigo-100/70 border border-indigo-200/60 px-4 py-2 rounded-xl transition cursor-pointer self-start sm:self-auto shadow-xs active:scale-[0.98]"
             >
               {showAdminConfig ? 'Hide Settings' : 'Configure Business Plus Price'}
             </button>
           </div>
 
           {showAdminConfig && (
-            <div className="space-y-4 pt-2">
+            <div className="space-y-4 pt-1 animate-in fade-in duration-200">
               <div className="max-w-md">
-                <label className="block text-xs font-bold text-slate-700 mb-1">
+                <label className="block text-xs font-bold text-slate-700 mb-1.5">
                   Business Plus Monthly Subscription Rate (₹)
                 </label>
                 <div className="flex items-center gap-3">
                   <div className="relative flex-1">
-                    <span className="absolute left-3 top-2.5 text-sm font-bold text-slate-400">₹</span>
+                    <span className="absolute left-3.5 top-2.5 text-sm font-bold text-slate-400">₹</span>
                     <input 
                       type="number"
                       min="0"
                       step="50"
                       value={businessPlusPrice}
                       onChange={(e) => setBusinessPlusPrice(Number(e.target.value) || 0)}
-                      className="w-full pl-8 pr-4 py-2 border border-slate-200 rounded-xl text-sm font-bold text-slate-800 outline-none focus:ring-2 focus:ring-indigo-500/20 focus:border-indigo-500"
+                      className="w-full pl-8 pr-4 py-2.5 bg-slate-50/50 border border-slate-200 rounded-xl text-sm font-bold text-slate-800 outline-none focus:bg-white focus:ring-3 focus:ring-indigo-500/15 focus:border-indigo-500 transition shadow-xs"
                     />
                   </div>
                   <button
                     onClick={handleSaveAdminBusinessPlusPrice}
                     disabled={savingAdminPrice}
-                    className="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-5 py-2.5 rounded-xl transition flex items-center gap-2 cursor-pointer disabled:opacity-50"
+                    className="bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold px-5 py-2.5 rounded-xl transition flex items-center gap-2 cursor-pointer disabled:opacity-50 shadow-sm active:scale-[0.98]"
                   >
                     {savingAdminPrice ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Check className="w-3.5 h-3.5" />}
                     <span>Save Rate</span>
                   </button>
                 </div>
-                <p className="text-[11px] text-slate-400 mt-1.5">
+                <p className="text-[11px] text-slate-500 mt-2 font-medium">
                   Allows custom enterprise pricing to be configured for your store or network.
                 </p>
               </div>
@@ -734,99 +737,102 @@ export function Pricing({ user }: { user: User | null }) {
       )}
 
       {/* Plan Feature Comparison Table */}
-      <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-8 shadow-sm overflow-hidden">
+      <div className="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-8 shadow-xs overflow-hidden">
         <div className="mb-6">
-          <h3 className="text-xl font-bold text-slate-900">Detailed Feature Comparison</h3>
-          <p className="text-xs text-slate-500 mt-1">Everything you need to know about what's included in each plan.</p>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 border border-slate-200/80 text-[11px] font-bold text-slate-600 mb-2">
+            Detailed Breakdown
+          </div>
+          <h3 className="text-xl font-black text-slate-900 tracking-tight">Feature Comparison</h3>
+          <p className="text-xs text-slate-500 mt-1">Everything you need to know about what's included in each plan tier.</p>
         </div>
 
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse text-xs">
+        <div className="overflow-x-auto -mx-6 sm:mx-0">
+          <table className="w-full text-left border-collapse text-xs min-w-[640px]">
             <thead>
-              <tr className="border-b border-slate-200 text-slate-500 font-bold uppercase tracking-wider">
-                <th className="py-3 px-4">Feature</th>
-                <th className="py-3 px-4 text-center">Free (₹0)</th>
-                <th className="py-3 px-4 text-center">Starter (₹99)</th>
-                <th className="py-3 px-4 text-center text-indigo-700 bg-indigo-50/50 rounded-t-xl">Business (₹499)</th>
-                <th className="py-3 px-4 text-center">Business Plus (₹{businessPlusPrice})</th>
+              <tr className="border-b border-slate-200/90 text-slate-500 font-bold uppercase tracking-wider text-[11px]">
+                <th className="py-3.5 px-4 bg-slate-50/60 rounded-tl-xl">Feature</th>
+                <th className="py-3.5 px-4 text-center bg-slate-50/60">Free (₹0)</th>
+                <th className="py-3.5 px-4 text-center bg-slate-50/60">Starter (₹99)</th>
+                <th className="py-3.5 px-4 text-center text-indigo-700 bg-indigo-50/80 border-t border-x border-indigo-200/80 rounded-t-xl font-black">Business (₹499)</th>
+                <th className="py-3.5 px-4 text-center bg-slate-50/60 rounded-tr-xl">Business Plus (₹{businessPlusPrice})</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 text-slate-700">
-              <tr>
+              <tr className="hover:bg-slate-50/50 transition-colors">
                 <td className="py-3.5 px-4 font-bold text-slate-900">Monthly Order Limit</td>
                 <td className="py-3.5 px-4 text-center font-bold text-slate-600">10 orders</td>
                 <td className="py-3.5 px-4 text-center font-bold text-indigo-600">200 orders</td>
-                <td className="py-3.5 px-4 text-center font-bold text-indigo-700 bg-indigo-50/50">1,000 orders</td>
+                <td className="py-3.5 px-4 text-center font-extrabold text-indigo-700 bg-indigo-50/40 border-x border-indigo-100/60">1,000 orders</td>
                 <td className="py-3.5 px-4 text-center font-bold text-emerald-600">1,000+ (High-Volume)</td>
               </tr>
-              <tr>
-                <td className="py-3.5 px-4">PrintBridge Desktop Companion</td>
-                <td className="py-3.5 px-4 text-center text-slate-400">—</td>
+              <tr className="hover:bg-slate-50/50 transition-colors">
+                <td className="py-3.5 px-4 font-medium text-slate-800">PrintBridge Desktop Companion</td>
+                <td className="py-3.5 px-4 text-center text-slate-300 font-bold">—</td>
                 <td className="py-3.5 px-4 text-center"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
-                <td className="py-3.5 px-4 text-center bg-indigo-50/50"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
-                <td className="py-3.5 px-4 text-center"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
-              </tr>
-              <tr>
-                <td className="py-3.5 px-4">Custom Pricing & Range Discounts</td>
-                <td className="py-3.5 px-4 text-center text-slate-400">Standard</td>
-                <td className="py-3.5 px-4 text-center"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
-                <td className="py-3.5 px-4 text-center bg-indigo-50/50"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
+                <td className="py-3.5 px-4 text-center bg-indigo-50/40 border-x border-indigo-100/60"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
                 <td className="py-3.5 px-4 text-center"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
               </tr>
-              <tr>
-                <td className="py-3.5 px-4">Auto-Print on Paid Orders</td>
-                <td className="py-3.5 px-4 text-center text-slate-400">—</td>
+              <tr className="hover:bg-slate-50/50 transition-colors">
+                <td className="py-3.5 px-4 font-medium text-slate-800">Custom Pricing & Range Discounts</td>
+                <td className="py-3.5 px-4 text-center text-slate-500 font-medium">Standard</td>
                 <td className="py-3.5 px-4 text-center"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
-                <td className="py-3.5 px-4 text-center bg-indigo-50/50"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
-                <td className="py-3.5 px-4 text-center"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
-              </tr>
-              <tr>
-                <td className="py-3.5 px-4">Multi-Printer Hardware Routing</td>
-                <td className="py-3.5 px-4 text-center text-slate-400">—</td>
-                <td className="py-3.5 px-4 text-center text-slate-400">—</td>
-                <td className="py-3.5 px-4 text-center bg-indigo-50/50"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
+                <td className="py-3.5 px-4 text-center bg-indigo-50/40 border-x border-indigo-100/60"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
                 <td className="py-3.5 px-4 text-center"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
               </tr>
-              <tr>
-                <td className="py-3.5 px-4">PhonePe Merchant Direct Payout</td>
-                <td className="py-3.5 px-4 text-center text-slate-400">—</td>
-                <td className="py-3.5 px-4 text-center text-slate-400">—</td>
-                <td className="py-3.5 px-4 text-center bg-indigo-50/50"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
+              <tr className="hover:bg-slate-50/50 transition-colors">
+                <td className="py-3.5 px-4 font-medium text-slate-800">Auto-Print on Paid Orders</td>
+                <td className="py-3.5 px-4 text-center text-slate-300 font-bold">—</td>
+                <td className="py-3.5 px-4 text-center"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
+                <td className="py-3.5 px-4 text-center bg-indigo-50/40 border-x border-indigo-100/60"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
                 <td className="py-3.5 px-4 text-center"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
               </tr>
-              <tr>
-                <td className="py-3.5 px-4">Real-Time Revenue Analytics</td>
-                <td className="py-3.5 px-4 text-center text-slate-400">Basic</td>
-                <td className="py-3.5 px-4 text-center text-slate-400">Basic</td>
-                <td className="py-3.5 px-4 text-center bg-indigo-50/50"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
+              <tr className="hover:bg-slate-50/50 transition-colors">
+                <td className="py-3.5 px-4 font-medium text-slate-800">Multi-Printer Hardware Routing</td>
+                <td className="py-3.5 px-4 text-center text-slate-300 font-bold">—</td>
+                <td className="py-3.5 px-4 text-center text-slate-300 font-bold">—</td>
+                <td className="py-3.5 px-4 text-center bg-indigo-50/40 border-x border-indigo-100/60"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
                 <td className="py-3.5 px-4 text-center"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
               </tr>
-              <tr>
-                <td className="py-3.5 px-4">Multi-Counter Staff Access</td>
-                <td className="py-3.5 px-4 text-center text-slate-400">—</td>
-                <td className="py-3.5 px-4 text-center text-slate-400">—</td>
-                <td className="py-3.5 px-4 text-center bg-indigo-50/50">—</td>
+              <tr className="hover:bg-slate-50/50 transition-colors">
+                <td className="py-3.5 px-4 font-medium text-slate-800">PhonePe Merchant Direct Payout</td>
+                <td className="py-3.5 px-4 text-center text-slate-300 font-bold">—</td>
+                <td className="py-3.5 px-4 text-center text-slate-300 font-bold">—</td>
+                <td className="py-3.5 px-4 text-center bg-indigo-50/40 border-x border-indigo-100/60"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
                 <td className="py-3.5 px-4 text-center"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
               </tr>
-              <tr className="bg-amber-50/50">
+              <tr className="hover:bg-slate-50/50 transition-colors">
+                <td className="py-3.5 px-4 font-medium text-slate-800">Real-Time Revenue Analytics</td>
+                <td className="py-3.5 px-4 text-center text-slate-500 font-medium">Basic</td>
+                <td className="py-3.5 px-4 text-center text-slate-500 font-medium">Basic</td>
+                <td className="py-3.5 px-4 text-center bg-indigo-50/40 border-x border-indigo-100/60"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
+                <td className="py-3.5 px-4 text-center"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
+              </tr>
+              <tr className="hover:bg-slate-50/50 transition-colors">
+                <td className="py-3.5 px-4 font-medium text-slate-800">Multi-Counter Staff Access</td>
+                <td className="py-3.5 px-4 text-center text-slate-300 font-bold">—</td>
+                <td className="py-3.5 px-4 text-center text-slate-300 font-bold">—</td>
+                <td className="py-3.5 px-4 text-center bg-indigo-50/40 border-x border-indigo-100/60 text-slate-300 font-bold">—</td>
+                <td className="py-3.5 px-4 text-center"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
+              </tr>
+              <tr className="bg-gradient-to-r from-amber-50/60 via-amber-50/30 to-amber-50/60 hover:from-amber-50/80 transition-colors">
                 <td className="py-3.5 px-4 font-bold text-amber-950 flex items-center gap-1.5">
                   <Sparkles className="w-3.5 h-3.5 text-amber-600 shrink-0" />
                   AI Studio Passport & Suit Maker
                 </td>
-                <td className="py-3.5 px-4 text-center text-slate-400">—</td>
-                <td className="py-3.5 px-4 text-center text-slate-400">—</td>
-                <td className="py-3.5 px-4 text-center bg-indigo-50/50 text-slate-400">—</td>
+                <td className="py-3.5 px-4 text-center text-slate-300 font-bold">—</td>
+                <td className="py-3.5 px-4 text-center text-slate-300 font-bold">—</td>
+                <td className="py-3.5 px-4 text-center bg-indigo-50/40 border-x border-indigo-100/60 text-slate-300 font-bold">—</td>
                 <td className="py-3.5 px-4 text-center">
-                  <span className="inline-flex items-center gap-1 bg-amber-100 text-amber-900 border border-amber-300 text-[10px] font-black px-2 py-0.5 rounded-full shadow-xs">
+                  <span className="inline-flex items-center gap-1 bg-amber-100/90 text-amber-900 border border-amber-300/80 text-[10px] font-black px-2.5 py-0.5 rounded-full shadow-xs">
                     <Check className="w-3 h-3 text-amber-700" /> Exclusive
                   </span>
                 </td>
               </tr>
-              <tr>
-                <td className="py-3.5 px-4 font-medium">Automatic Monthly Reset</td>
+              <tr className="hover:bg-slate-50/50 transition-colors">
+                <td className="py-3.5 px-4 font-medium text-slate-800">Automatic Monthly Reset</td>
                 <td className="py-3.5 px-4 text-center"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
                 <td className="py-3.5 px-4 text-center"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
-                <td className="py-3.5 px-4 text-center bg-indigo-50/50"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
+                <td className="py-3.5 px-4 text-center bg-indigo-50/40 border-x border-indigo-100/60 border-b border-indigo-200/80 rounded-b-xl"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
                 <td className="py-3.5 px-4 text-center"><Check className="w-4 h-4 text-emerald-600 mx-auto" /></td>
               </tr>
             </tbody>
@@ -835,32 +841,37 @@ export function Pricing({ user }: { user: User | null }) {
       </div>
 
       {/* Frequently Asked Questions */}
-      <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-4">
-        <h3 className="text-lg font-bold text-slate-900 flex items-center gap-2">
-          <HelpCircle className="w-5 h-5 text-indigo-600" /> Frequently Asked Questions
-        </h3>
+      <div className="bg-gradient-to-b from-slate-50 to-slate-100/60 border border-slate-200/80 rounded-3xl p-6 sm:p-8 space-y-5 shadow-xs">
+        <div>
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-slate-200/80 text-[11px] font-bold text-slate-600 mb-2 shadow-xs">
+            Got Questions?
+          </div>
+          <h3 className="text-lg font-black text-slate-900 flex items-center gap-2 tracking-tight">
+            <HelpCircle className="w-5 h-5 text-indigo-600" /> Frequently Asked Questions
+          </h3>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-600">
-          <div className="bg-white p-4 rounded-2xl border border-slate-200/80">
-            <h4 className="font-bold text-slate-900 mb-1">What happens when my shop hits its monthly limit?</h4>
-            <p className="leading-relaxed">
+          <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs hover:border-slate-300 transition">
+            <h4 className="font-bold text-slate-900 mb-1.5 text-sm tracking-tight">What happens when my shop hits its monthly limit?</h4>
+            <p className="leading-relaxed text-slate-600">
               When a Free (10), Starter (200), or Business (1,000) shop hits its limit, customers will be informed that the shop is at capacity, and you will see a clear upgrade prompt. No data is lost, and you can instantly upgrade to continue receiving orders.
             </p>
           </div>
-          <div className="bg-white p-4 rounded-2xl border border-slate-200/80">
-            <h4 className="font-bold text-slate-900 mb-1">When does my order counter reset?</h4>
-            <p className="leading-relaxed">
+          <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs hover:border-slate-300 transition">
+            <h4 className="font-bold text-slate-900 mb-1.5 text-sm tracking-tight">When does my order counter reset?</h4>
+            <p className="leading-relaxed text-slate-600">
               Order counters reset automatically at the start of each monthly billing period. Cancelled and rejected orders are automatically excluded from your billable count.
             </p>
           </div>
-          <div className="bg-white p-4 rounded-2xl border border-slate-200/80">
-            <h4 className="font-bold text-slate-900 mb-1">Can I upgrade or downgrade anytime?</h4>
-            <p className="leading-relaxed">
+          <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs hover:border-slate-300 transition">
+            <h4 className="font-bold text-slate-900 mb-1.5 text-sm tracking-tight">Can I upgrade or downgrade anytime?</h4>
+            <p className="leading-relaxed text-slate-600">
               Yes! You can upgrade your plan at any point in the billing cycle. Your order capacity will update instantly on your dashboard and live customer queue.
             </p>
           </div>
-          <div className="bg-white p-4 rounded-2xl border border-slate-200/80">
-            <h4 className="font-bold text-slate-900 mb-1">How does the Business Plus plan work?</h4>
-            <p className="leading-relaxed">
+          <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-xs hover:border-slate-300 transition">
+            <h4 className="font-bold text-slate-900 mb-1.5 text-sm tracking-tight">How does the Business Plus plan work?</h4>
+            <p className="leading-relaxed text-slate-600">
               Business Plus is built specifically for high-volume printing operations processing 1,000+ orders. It has no fixed hard ceiling, so your shop never runs into order blocks during peak seasons.
             </p>
           </div>

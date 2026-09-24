@@ -571,7 +571,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
 
   if (authLoading || loading) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-[400px] p-8 bg-white rounded-3xl border border-slate-200 shadow-sm">
+      <div className="flex flex-col items-center justify-center min-h-[420px] p-8 bg-white rounded-3xl border border-slate-200/80 shadow-sm shadow-slate-100">
         <Loader2 className="w-8 h-8 text-indigo-600 animate-spin mb-4" />
         <p className="text-slate-500 text-xs font-bold uppercase tracking-wider">Connecting to Partner Portal...</p>
       </div>
@@ -580,13 +580,13 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
 
   if (!user) {
     return (
-      <div className="max-w-xl mx-auto my-12 bg-white rounded-3xl border border-slate-200 p-8 sm:p-10 shadow-sm text-center space-y-6">
-        <div className="w-16 h-16 bg-indigo-50 text-indigo-600 rounded-3xl flex items-center justify-center mx-auto shadow-sm">
+      <div className="max-w-xl mx-auto my-12 bg-white rounded-3xl border border-slate-200/80 p-8 sm:p-10 shadow-sm shadow-slate-100 text-center space-y-6">
+        <div className="w-16 h-16 bg-indigo-50 border border-indigo-100 text-indigo-600 rounded-3xl flex items-center justify-center mx-auto shadow-xs">
           <Store className="w-8 h-8" />
         </div>
         <div>
           <h2 className="text-2xl font-black text-slate-900 tracking-tight">Partner Dashboard</h2>
-          <p className="text-sm text-slate-500 mt-2 max-w-md mx-auto">
+          <p className="text-sm text-slate-500 mt-2 max-w-md mx-auto leading-relaxed">
             Sign in with your partner Google account to manage incoming print orders, live queue status, and pricing.
           </p>
         </div>
@@ -601,7 +601,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                 }
               }
             }}
-            className="inline-flex items-center justify-center gap-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-3.5 rounded-2xl shadow-md transition-all text-sm cursor-pointer"
+            className="inline-flex items-center justify-center gap-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-7 py-3.5 rounded-2xl shadow-md shadow-indigo-150 hover:shadow-lg hover:shadow-indigo-200 transition-all text-sm cursor-pointer active:scale-[0.99]"
           >
             <img src="https://www.google.com/favicon.ico" alt="Google" className="w-4 h-4 bg-white rounded-full p-0.5" />
             <span>Sign In as Print Shop Partner</span>
@@ -616,18 +616,18 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
 
   if (!shop) {
     return (
-      <div className="max-w-2xl mx-auto my-10 bg-white rounded-3xl border border-slate-200 p-8 sm:p-10 shadow-sm space-y-6 text-center">
-        <div className="w-16 h-16 bg-indigo-50 text-indigo-600 rounded-3xl flex items-center justify-center mx-auto shadow-sm">
+      <div className="max-w-2xl mx-auto my-10 bg-white rounded-3xl border border-slate-200/80 p-8 sm:p-10 shadow-sm shadow-slate-100 space-y-6 text-center">
+        <div className="w-16 h-16 bg-indigo-50 border border-indigo-100 text-indigo-600 rounded-3xl flex items-center justify-center mx-auto shadow-xs">
           <Store className="w-8 h-8" />
         </div>
         <div>
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-indigo-50 border border-indigo-200 text-indigo-700 rounded-full text-xs font-bold uppercase tracking-wider mb-3">
             Shop Registration Required
           </div>
           <h2 className="text-2xl font-black text-slate-900 tracking-tight">
             Welcome to PrintHub, {user.displayName || 'Partner'}!
           </h2>
-          <p className="text-sm text-slate-500 mt-2 max-w-md mx-auto">
+          <p className="text-sm text-slate-500 mt-2 max-w-md mx-auto leading-relaxed">
             Your partner login is verified, but you haven't published your shop profile yet. Complete setup to start receiving orders right here on the dashboard.
           </p>
         </div>
@@ -635,14 +635,14 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2">
           <Link
             to="/shop-setup"
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-3.5 rounded-2xl shadow-md transition-all text-sm cursor-pointer"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-6 py-3.5 rounded-2xl shadow-md shadow-indigo-150 hover:shadow-lg hover:shadow-indigo-200 transition-all text-sm cursor-pointer active:scale-[0.99]"
           >
             <Settings className="w-4 h-4" />
             <span>Configure Custom Shop Profile</span>
           </Link>
           <button
             onClick={quickLaunchShop}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-6 py-3.5 rounded-2xl transition-all text-sm cursor-pointer border border-slate-200"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-slate-50 hover:bg-slate-100 text-slate-700 font-bold px-6 py-3.5 rounded-2xl transition-all text-sm cursor-pointer border border-slate-200/80 active:scale-[0.99]"
           >
             <Zap className="w-4 h-4 text-amber-500" />
             <span>Quick Launch with Defaults</span>
@@ -656,18 +656,18 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
     <div className="space-y-8">
 
       {showQRModal && shop && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-          <div className="bg-white w-[380px] max-w-[95vw] rounded-3xl shadow-2xl overflow-hidden flex flex-col relative border border-slate-100 shrink-0">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-sm animate-fade-in">
+          <div className="bg-white w-[380px] max-w-[95vw] rounded-3xl shadow-2xl overflow-hidden flex flex-col relative border border-slate-200/80 shrink-0">
             <div className="flex justify-between items-center p-5 border-b border-slate-100">
               <h3 className="font-bold text-slate-900 text-lg">Shop QR Code</h3>
-              <button onClick={() => setShowQRModal(false)} className="text-slate-400 hover:text-slate-600 transition-colors cursor-pointer">
+              <button onClick={() => setShowQRModal(false)} className="text-slate-400 hover:text-slate-600 transition-colors cursor-pointer p-1 rounded-lg hover:bg-slate-100">
                 <X className="w-5 h-5" />
               </button>
             </div>
             <div className="p-8 flex flex-col items-center justify-center w-full" id="printable-qr-area">
               <h2 className="text-xl font-black text-slate-900 mb-1 text-center w-full truncate notranslate" translate="no">{shop.name}</h2>
               <p className="text-xs text-slate-500 mb-6 text-center max-w-[280px]">Scan to print your documents instantly</p>
-              <div className="p-5 bg-white border border-slate-150 rounded-2xl shadow-inner flex items-center justify-center w-[280px] h-[280px]">
+              <div className="p-5 bg-white border border-slate-200/90 rounded-2xl shadow-inner flex items-center justify-center w-[280px] h-[280px]">
                 <QRCodeSVG 
                   id="shop-qr-code-svg"
                   value={`${window.location.origin}/shop/${shop.id}/upload`} 
@@ -683,7 +683,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
             <div className="p-5 bg-slate-50 border-t border-slate-100 flex gap-2">
               <button 
                 onClick={() => setShowQRModal(false)}
-                className="px-4 py-2.5 rounded-xl font-semibold text-xs bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition"
+                className="px-4 py-2.5 rounded-xl font-semibold text-xs bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 transition cursor-pointer"
               >
                 Close
               </button>
@@ -692,7 +692,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                   const element = document.getElementById('printable-qr-area');
                   if (!element) return;
                   try {
-                                                            const domtoimage = (await import('dom-to-image-more')).default;
+                    const domtoimage = (await import('dom-to-image-more')).default;
                     const { jsPDF } = await import('jspdf');
 
                     const elemW = element.scrollWidth || 300;
@@ -735,7 +735,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                     toast.error('Failed to generate PDF');
                   }
                 }}
-                className="flex-1 py-2.5 rounded-xl font-bold text-xs bg-slate-800 hover:bg-slate-900 text-white transition flex justify-center items-center gap-1.5"
+                className="flex-1 py-2.5 rounded-xl font-bold text-xs bg-slate-900 hover:bg-slate-800 text-white transition flex justify-center items-center gap-1.5 cursor-pointer shadow-xs"
               >
                 <Printer className="w-4 h-4" /> Print
               </button>
@@ -748,9 +748,9 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
       <div className="flex flex-col lg:flex-row gap-8 animate-fade-in pb-12">
         {/* Side Navigation Sidebar */}
         <aside className="lg:w-64 shrink-0 flex flex-col gap-6">
-          <div className="bg-white rounded-3xl border border-slate-200 p-6 flex flex-col gap-6 shadow-sm">
+          <div className="bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col gap-6 shadow-sm shadow-slate-100">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 bg-indigo-600 rounded-xl flex items-center justify-center text-white font-extrabold text-sm">
+              <div className="w-10 h-10 bg-gradient-to-tr from-indigo-700 to-indigo-600 rounded-xl flex items-center justify-center text-white font-black text-sm shadow-sm shadow-indigo-200">
                 PH
               </div>
               <div>
@@ -762,7 +762,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
             <nav className="flex flex-col gap-1.5">
               <button 
                 onClick={() => setActiveTab('overview')}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold transition-all cursor-pointer text-left ${activeTab === 'overview' ? 'bg-indigo-50 text-indigo-700 shadow-sm border-r-4 border-indigo-600' : 'text-slate-600 hover:bg-slate-50'}`}
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold transition-all cursor-pointer text-left ${activeTab === 'overview' ? 'bg-indigo-50/90 text-indigo-700 shadow-xs border-r-4 border-indigo-600' : 'text-slate-600 hover:bg-slate-50'}`}
               >
                 <Store className="w-4 h-4" />
                 <span>Overview</span>
@@ -798,7 +798,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
               </Link>
               <Link 
                 to="/pricing"
-                className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs font-bold transition-all text-slate-600 hover:bg-indigo-50 hover:text-indigo-600 group"
+                className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs font-bold transition-all text-slate-600 hover:bg-indigo-50/80 hover:text-indigo-600 group"
               >
                 <div className="flex items-center gap-3">
                   <Sparkles className="w-4 h-4 text-indigo-500 group-hover:scale-110 transition-transform" />
@@ -810,7 +810,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
               </Link>
               <button 
                 onClick={() => setActiveTab('companion')}
-                className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs font-bold transition-all cursor-pointer text-left ${activeTab === 'companion' ? 'bg-indigo-50 text-indigo-700 shadow-sm border-r-4 border-indigo-600' : 'text-slate-600 hover:bg-slate-50'}`}
+                className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs font-bold transition-all cursor-pointer text-left ${activeTab === 'companion' ? 'bg-indigo-50/90 text-indigo-700 shadow-xs border-r-4 border-indigo-600' : 'text-slate-600 hover:bg-slate-50'}`}
               >
                 <div className="flex items-center gap-3">
                   <Printer className="w-4 h-4 text-indigo-600" />
@@ -825,7 +825,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
               </button>
               <button 
                 onClick={() => setActiveTab('payments')}
-                className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs font-bold transition-all cursor-pointer text-left ${activeTab === 'payments' ? 'bg-indigo-50 text-indigo-700 shadow-sm border-r-4 border-indigo-600' : 'text-slate-600 hover:bg-slate-50'}`}
+                className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-xs font-bold transition-all cursor-pointer text-left ${activeTab === 'payments' ? 'bg-indigo-50/90 text-indigo-700 shadow-xs border-r-4 border-indigo-600' : 'text-slate-600 hover:bg-slate-50'}`}
               >
                 <div className="flex items-center gap-3">
                   <CreditCard className="w-4 h-4 text-indigo-600" />
@@ -843,7 +843,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
               </button>
               <button 
                 onClick={() => setActiveTab('settings')}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold transition-all cursor-pointer text-left ${activeTab === 'settings' ? 'bg-indigo-50 text-indigo-700 shadow-sm border-r-4 border-indigo-600' : 'text-slate-600 hover:bg-slate-50'}`}
+                className={`w-full flex items-center gap-3 px-4 py-3 rounded-xl text-xs font-bold transition-all cursor-pointer text-left ${activeTab === 'settings' ? 'bg-indigo-50/90 text-indigo-700 shadow-xs border-r-4 border-indigo-600' : 'text-slate-600 hover:bg-slate-50'}`}
               >
                 <Store className="w-4 h-4" />
                 <span>Edit Profile / Shop</span>
@@ -853,7 +853,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
             <div className="pt-4 border-t border-slate-100 flex flex-col gap-2">
               <button 
                 onClick={() => setShowQRModal(true)}
-                className="w-full bg-slate-950 hover:bg-slate-900 text-white font-bold py-3 px-4 rounded-xl text-xs transition flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+                className="w-full bg-slate-900 hover:bg-slate-800 active:scale-[0.98] text-white font-bold py-3 px-4 rounded-xl text-xs transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm shadow-slate-200"
               >
                 <QrCode className="w-4 h-4" />
                 <span>Generate QR</span>
@@ -863,7 +863,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
         </aside>
 
         <div className="flex-1 min-w-0 space-y-8">
-          <header className="bg-white rounded-3xl border border-slate-200 p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm">
+          <header className="bg-white rounded-3xl border border-slate-200/80 p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-sm shadow-slate-100">
             <div>
               <div className="flex items-center gap-2.5 mb-1.5">
                 <span className="font-bold text-sm text-slate-500 font-sans">Partner Dashboard</span>
@@ -886,7 +886,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
               <h1 className="text-xl font-black text-slate-950 truncate max-w-md notranslate" translate="no">{shop?.name || 'My Print Shop'}</h1>
             </div>
 
-            <div className="flex items-center gap-4 bg-slate-50 border border-slate-150 p-4 rounded-2xl">
+            <div className="flex items-center gap-4 bg-slate-50/80 border border-slate-200/80 p-4 rounded-2xl">
               <div>
                 <div className="font-bold text-slate-900 text-xs leading-none mb-1">Accepting New Orders</div>
                 <div className="text-[10px] text-slate-400 font-medium">
@@ -915,10 +915,10 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
           {activeTab === 'overview' && (
             <>
               {/* PRINT BRIDGE QUICK STATUS STRIP */}
-              <div className={`p-4 rounded-2xl border flex flex-wrap items-center justify-between gap-3 text-xs transition-all ${
+              <div className={`p-4 rounded-2xl border flex flex-wrap items-center justify-between gap-3 text-xs transition-all shadow-xs ${
                 isBridgeOnline 
-                  ? 'bg-emerald-50/70 border-emerald-200 text-emerald-950' 
-                  : 'bg-amber-50/70 border-amber-200 text-amber-950'
+                  ? 'bg-emerald-50/80 border-emerald-200/90 text-emerald-950' 
+                  : 'bg-amber-50/80 border-amber-200/90 text-amber-950'
               }`}>
                 <div className="flex items-center gap-3">
                   <span className={`w-3 h-3 rounded-full shrink-0 ${
@@ -930,7 +930,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                     <span className="font-extrabold flex items-center gap-2">
                       {isBridgeOnline ? 'Print Bridge Connected (Port 1337)' : 'Print Bridge Offline'}
                       <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                        isBridgeOnline ? 'bg-emerald-200 text-emerald-800' : 'bg-amber-200 text-amber-800'
+                        isBridgeOnline ? 'bg-emerald-200/80 text-emerald-900 border border-emerald-300' : 'bg-amber-200/80 text-amber-900 border border-amber-300'
                       }`}>
                         {isBridgeOnline ? 'Auto-Printing Ready' : 'Manual Mode'}
                       </span>
@@ -948,7 +948,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                     <button
                       type="button"
                       onClick={() => setShowBridgeModal(true)}
-                      className="px-3 py-1.5 bg-white hover:bg-emerald-100 text-emerald-800 border border-emerald-300 rounded-xl font-bold text-xs transition shadow-xs cursor-pointer flex items-center gap-1.5"
+                      className="px-3.5 py-1.5 bg-white hover:bg-emerald-50 text-emerald-800 border border-emerald-300 rounded-xl font-bold text-xs transition shadow-xs cursor-pointer flex items-center gap-1.5"
                     >
                       <Printer className="w-3.5 h-3.5 text-emerald-600" />
                       <span>Manage / Test Hardware</span>
@@ -957,7 +957,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                     <button
                       type="button"
                       onClick={() => setShowBridgeModal(true)}
-                      className="px-3.5 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold text-xs transition shadow-xs cursor-pointer flex items-center gap-1.5"
+                      className="px-3.5 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl font-bold text-xs transition shadow-xs shadow-indigo-150 cursor-pointer flex items-center gap-1.5"
                     >
                       <Download className="w-3.5 h-3.5" />
                       <span>Setup Print Bridge (30s)</span>
@@ -967,7 +967,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
               </div>
 
               {/* REQUIREMENT 3 & 4: REAL-TIME ORDER STATUS SECTION */}
-              <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-7 shadow-sm space-y-6">
+              <div className="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-7 shadow-sm shadow-slate-100 space-y-6">
                 {/* Section Header */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-100 pb-4">
                   <div className="flex items-center gap-3">
@@ -996,7 +996,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                 {/* Real-Time Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-stretch">
                   {/* Prominent "Available Orders" Hero Box */}
-                  <div className="lg:col-span-4 bg-gradient-to-br from-indigo-600 via-indigo-700 to-slate-900 text-white p-6 rounded-2xl shadow-lg shadow-indigo-150 flex flex-col justify-between relative overflow-hidden">
+                  <div className="lg:col-span-4 bg-gradient-to-br from-indigo-600 via-indigo-700 to-slate-900 text-white p-6 rounded-2xl shadow-lg shadow-indigo-150/40 flex flex-col justify-between relative overflow-hidden border border-indigo-500/20">
                     <div className="absolute -right-6 -bottom-6 opacity-10 pointer-events-none">
                       <Clock className="w-40 h-40" />
                     </div>
@@ -1005,7 +1005,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                         <span className="text-[11px] uppercase tracking-widest font-black text-indigo-200">
                           AVAILABLE ORDERS
                         </span>
-                        <span className="inline-flex items-center gap-1 bg-white/20 backdrop-blur-sm text-[10px] font-bold px-2 py-0.5 rounded-full text-white">
+                        <span className="inline-flex items-center gap-1 bg-white/20 backdrop-blur-sm text-[10px] font-bold px-2 py-0.5 rounded-full text-white border border-white/20">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span> Active
                         </span>
                       </div>
@@ -1034,7 +1034,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                   {/* The 4 Real-Time Counters Grid */}
                   <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
                     {/* 1. New Orders */}
-                    <div className="bg-slate-50 border border-slate-200/90 p-4 rounded-2xl flex flex-col justify-between hover:bg-slate-100/60 transition-colors">
+                    <div className="bg-slate-50/80 border border-slate-200/80 p-4 rounded-2xl flex flex-col justify-between hover:bg-white hover:border-amber-200 hover:shadow-xs transition-all">
                       <div className="flex items-center justify-between text-slate-500 mb-2">
                         <span className="text-[11px] font-bold uppercase tracking-wider text-slate-600">New Orders</span>
                         <span className="p-1.5 bg-amber-100 text-amber-700 rounded-lg">
@@ -1048,7 +1048,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                     </div>
 
                     {/* 2. Processing */}
-                    <div className="bg-slate-50 border border-slate-200/90 p-4 rounded-2xl flex flex-col justify-between hover:bg-slate-100/60 transition-colors">
+                    <div className="bg-slate-50/80 border border-slate-200/80 p-4 rounded-2xl flex flex-col justify-between hover:bg-white hover:border-blue-200 hover:shadow-xs transition-all">
                       <div className="flex items-center justify-between text-slate-500 mb-2">
                         <span className="text-[11px] font-bold uppercase tracking-wider text-slate-600">Processing</span>
                         <span className="p-1.5 bg-blue-100 text-blue-700 rounded-lg">
@@ -1062,7 +1062,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                     </div>
 
                     {/* 3. Ready */}
-                    <div className="bg-slate-50 border border-slate-200/90 p-4 rounded-2xl flex flex-col justify-between hover:bg-slate-100/60 transition-colors">
+                    <div className="bg-slate-50/80 border border-slate-200/80 p-4 rounded-2xl flex flex-col justify-between hover:bg-white hover:border-purple-200 hover:shadow-xs transition-all">
                       <div className="flex items-center justify-between text-slate-500 mb-2">
                         <span className="text-[11px] font-bold uppercase tracking-wider text-slate-600">Ready</span>
                         <span className="p-1.5 bg-purple-100 text-purple-700 rounded-lg">
@@ -1076,7 +1076,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                     </div>
 
                     {/* 4. Completed Today */}
-                    <div className="bg-slate-50 border border-slate-200/90 p-4 rounded-2xl flex flex-col justify-between hover:bg-slate-100/60 transition-colors">
+                    <div className="bg-slate-50/80 border border-slate-200/80 p-4 rounded-2xl flex flex-col justify-between hover:bg-white hover:border-emerald-200 hover:shadow-xs transition-all">
                       <div className="flex items-center justify-between text-slate-500 mb-2">
                         <span className="text-[11px] font-bold uppercase tracking-wider text-slate-600">Completed Today</span>
                         <span className="p-1.5 bg-emerald-100 text-emerald-700 rounded-lg">
@@ -1093,10 +1093,10 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
               </div>
 
               {/* REQUIREMENT 5: MONTHLY PLAN USAGE CARD */}
-              <div className="bg-white rounded-3xl border border-slate-200 p-6 sm:p-7 shadow-sm">
+              <div className="bg-white rounded-3xl border border-slate-200/80 p-6 sm:p-7 shadow-sm shadow-slate-100">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-100 pb-4 mb-5">
                   <div className="flex items-center gap-3">
-                    <div className="p-2.5 bg-indigo-50 text-indigo-600 rounded-2xl">
+                    <div className="p-2.5 bg-indigo-50 text-indigo-600 rounded-2xl border border-indigo-100">
                       <Layers className="w-5 h-5" />
                     </div>
                     <div>
@@ -1124,7 +1124,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
 
                   <Link
                     to="/pricing"
-                    className="inline-flex items-center gap-1.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition shadow-sm self-start sm:self-auto cursor-pointer"
+                    className="inline-flex items-center gap-1.5 bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-4 py-2.5 rounded-xl text-xs transition shadow-sm shadow-indigo-150 self-start sm:self-auto cursor-pointer"
                   >
                     <Sparkles className="w-3.5 h-3.5" />
                     <span>{activePlanId === 'business_plus' ? 'Manage Subscription' : 'Upgrade Plan'}</span>
@@ -1134,7 +1134,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                 {/* Plan Usage Display */}
                 {activePlanId === 'business_plus' ? (
                   // Business Plus Plan: High-volume, no misleading 1,000 order limit!
-                  <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                  <div className="bg-slate-50/80 border border-slate-200/80 rounded-2xl p-5 flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div>
                       <span className="text-xs uppercase font-extrabold tracking-wider text-slate-400 block mb-1">
                         MONTHLY PLAN USAGE
@@ -1218,7 +1218,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
               <div className={`rounded-3xl border p-6 sm:p-7 shadow-sm transition-all ${
                 activePlanId === 'business_plus' 
                   ? 'bg-gradient-to-br from-amber-500/10 via-amber-50/50 to-white border-amber-200' 
-                  : 'bg-gradient-to-br from-slate-900 to-indigo-950 border-slate-800 text-white'
+                  : 'bg-gradient-to-br from-slate-900 to-indigo-950 border-slate-800 text-white shadow-md'
               }`}>
                 <div className="flex flex-col md:flex-row md:items-center justify-between gap-5">
                   <div className="space-y-2 max-w-xl">
@@ -1239,7 +1239,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                   <div className="shrink-0 flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
                     <Link
                       to="/tools?tool=ai-passport"
-                      className={`inline-flex items-center justify-center gap-2 font-black px-6 py-3.5 rounded-2xl text-xs shadow-md transition cursor-pointer ${
+                      className={`inline-flex items-center justify-center gap-2 font-black px-6 py-3.5 rounded-2xl text-xs shadow-md transition cursor-pointer active:scale-[0.99] ${
                         activePlanId === 'business_plus'
                           ? 'bg-gradient-to-r from-amber-500 to-yellow-500 hover:from-amber-400 hover:to-yellow-400 text-slate-950'
                           : 'bg-gradient-to-r from-amber-400 to-yellow-400 hover:from-amber-300 hover:to-yellow-300 text-slate-950'
@@ -1254,17 +1254,17 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
 
               {/* REVENUE & PRICING SUMMARY */}
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm shadow-slate-100 flex flex-col justify-between">
                   <span className="text-slate-500 text-xs font-bold uppercase tracking-wider">Today's Revenue</span>
                   <span className="text-3xl font-black text-indigo-600 mt-2">₹{todayRevenue.toFixed(2)}</span>
                   <span className="text-[11px] text-slate-400 mt-1">From completed and active print jobs</span>
                 </div>
-                <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm shadow-slate-100 flex flex-col justify-between">
                   <span className="text-slate-500 text-xs font-bold uppercase tracking-wider">B&W Standard Rate</span>
                   <span className="text-3xl font-black text-slate-800 mt-2">₹{pricing.bwPage1 || pricing.bwBase || 5}</span>
                   <span className="text-[11px] text-slate-400 mt-1">Per page single side</span>
                 </div>
-                <div className="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between">
+                <div className="bg-white p-5 rounded-2xl border border-slate-200/80 shadow-sm shadow-slate-100 flex flex-col justify-between">
                   <span className="text-slate-500 text-xs font-bold uppercase tracking-wider">Color Standard Rate</span>
                   <span className="text-3xl font-black text-slate-800 mt-2">₹{pricing.colorPage1 || pricing.colorBase || 15}</span>
                   <span className="text-[11px] text-slate-400 mt-1">Per page single side</span>
@@ -1272,13 +1272,13 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div className="bg-slate-50 border border-slate-200 rounded-xl p-5 flex flex-col justify-between">
+                <div className="bg-slate-50/80 border border-slate-200/80 rounded-2xl p-5 flex flex-col justify-between">
                   <div>
                     <div className="flex items-center justify-between mb-3 border-b border-slate-200/60 pb-2">
                       <h3 className="text-sm font-bold flex items-center gap-2 text-slate-700">
                         <Settings className="w-4 h-4 text-slate-500" /> Active Printing Rates
                       </h3>
-                      <span className="text-[10px] bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider">Configured</span>
+                      <span className="text-[10px] bg-indigo-50 text-indigo-700 px-2 py-0.5 rounded-full font-bold uppercase tracking-wider border border-indigo-100">Configured</span>
                     </div>
                     
                     <div className="grid grid-cols-2 gap-x-4 gap-y-2.5 text-xs mb-5">
@@ -1311,13 +1311,13 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
 
                   <Link 
                     to="/dashboard/pricing"
-                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-4 rounded-xl text-center text-xs transition block shadow-sm shadow-indigo-150"
+                    className="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-4 rounded-xl text-center text-xs transition block shadow-sm shadow-indigo-150 active:scale-[0.99]"
                   >
                     Manage Detailed Pricing & Range Discounts →
                   </Link>
                 </div>
 
-                <div className="bg-slate-50 border border-slate-200 rounded-xl p-5 flex flex-col justify-between">
+                <div className="bg-slate-50/80 border border-slate-200/80 rounded-2xl p-5 flex flex-col justify-between">
                   <div>
                     <h3 className="text-sm font-bold flex items-center gap-2 text-slate-700 mb-2">
                       <Printer className="w-4 h-4 text-indigo-500" /> Desktop Companion (PrintBridge)
@@ -1327,7 +1327,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                     </p>
                     
                     {shop && (
-                      <div className="bg-white p-3 rounded-xl border border-slate-200 mb-4 flex items-center justify-between">
+                      <div className="bg-white p-3.5 rounded-xl border border-slate-200/80 mb-4 flex items-center justify-between shadow-xs">
                         <div>
                           <span className="block text-[9px] uppercase tracking-wider font-extrabold text-slate-400">YOUR SHOP ID (AUTHENTICATION)</span>
                           <code className="text-xs font-mono font-bold text-slate-700">{shop.id}</code>
@@ -1338,7 +1338,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                             navigator.clipboard.writeText(shop.id);
                             toast.success("Shop ID copied to clipboard!");
                           }}
-                          className="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-2 py-1 rounded text-xs font-bold transition-colors cursor-pointer"
+                          className="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-2.5 py-1 rounded-lg text-xs font-bold transition-colors cursor-pointer border border-indigo-150"
                         >
                           Copy
                         </button>
@@ -1349,20 +1349,20 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                       <a
                         href="/api/download/windows"
                         download
-                        className="bg-indigo-600 hover:bg-indigo-700 text-white p-2.5 rounded-lg text-[11px] font-bold text-center transition flex items-center justify-center gap-1 shadow-sm cursor-pointer"
+                        className="bg-indigo-600 hover:bg-indigo-700 text-white p-2.5 rounded-xl text-[11px] font-bold text-center transition flex items-center justify-center gap-1 shadow-sm shadow-indigo-100 cursor-pointer active:scale-[0.99]"
                       >
                         <Download className="w-3.5 h-3.5" /> Download Windows (.exe)
                       </a>
                       <a
                         href="/api/download/macos"
                         download
-                        className="bg-slate-800 hover:bg-slate-900 text-white p-2.5 rounded-lg text-[11px] font-bold text-center transition flex items-center justify-center gap-1 shadow-sm cursor-pointer"
+                        className="bg-slate-900 hover:bg-slate-800 text-white p-2.5 rounded-xl text-[11px] font-bold text-center transition flex items-center justify-center gap-1 shadow-sm cursor-pointer active:scale-[0.99]"
                       >
                         <Download className="w-3.5 h-3.5" /> Download macOS (App)
                       </a>
                     </div>
                   </div>
-                  <div className="flex items-center justify-between border-t border-slate-200 pt-4">
+                  <div className="flex items-center justify-between border-t border-slate-200/80 pt-4">
                     <span className="text-xs font-semibold text-slate-700">Auto-Print on Paid Orders</span>
                     <label className="relative inline-flex items-center cursor-pointer">
                       <input 
@@ -1380,14 +1380,14 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
               <div id="print-queue-section">
                 <h2 className="text-lg font-bold mb-4 flex items-center gap-2">
                   Print Queue
-                  <span className="text-[10px] uppercase tracking-wider font-bold bg-slate-200 text-slate-600 px-2 py-0.5 rounded-full">FIFO</span>
+                  <span className="text-[10px] uppercase tracking-wider font-bold bg-slate-100 text-slate-600 border border-slate-200 px-2 py-0.5 rounded-full">FIFO</span>
                 </h2>
                 <div className="grid gap-4">
-                  <div className="p-4 bg-slate-50 border border-slate-200 rounded-lg text-sm text-slate-600 mb-4">
+                  <div className="p-4 bg-slate-50/80 border border-slate-200/80 rounded-2xl text-xs text-slate-600 mb-2">
                     <strong>Storage Policy:</strong> Files under 3MB are kept forever. Files 3MB and above are automatically deleted after 24 hours.
                   </div>
                   {orders.length === 0 && (
-                    <div className="p-8 text-center bg-slate-50 border border-dashed border-slate-300 rounded-xl text-slate-500">
+                    <div className="p-12 text-center bg-white border border-dashed border-slate-200 rounded-3xl text-slate-400 text-sm">
                       No orders yet.
                     </div>
                   )}
@@ -1395,17 +1395,17 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                     const routedPrinter = getRoutedPrinter(order);
                     
                     return (
-                      <div key={order.id} className="bg-white p-5 rounded-xl shadow-sm border border-slate-200 flex flex-col md:flex-row md:items-start justify-between gap-4 hover:border-indigo-100 transition">
+                      <div key={order.id} className="bg-white p-5 rounded-2xl shadow-xs border border-slate-200/80 flex flex-col md:flex-row md:items-start justify-between gap-4 hover:border-indigo-200 hover:shadow-sm transition-all">
                         <div className="flex-1">
                           <div className="flex items-center gap-2 mb-3">
-                            <span className="bg-indigo-50 text-indigo-600 font-mono text-xs px-2 py-0.5 rounded font-bold">{order.token}</span>
-                            <span className={`text-xs px-2 py-0.5 rounded font-medium ${
-                              order.status === 'Cancelled' ? 'bg-red-50 text-red-600' : 'bg-slate-50 text-slate-600'
+                            <span className="bg-indigo-50 text-indigo-700 font-mono text-xs px-2.5 py-0.5 rounded-lg font-bold border border-indigo-150">{order.token}</span>
+                            <span className={`text-xs px-2.5 py-0.5 rounded-lg font-semibold border ${
+                              order.status === 'Cancelled' ? 'bg-red-50 text-red-700 border-red-200' : 'bg-slate-50 text-slate-700 border-slate-200'
                             }`}>
                               {order.status}
                             </span>
                             {order.status !== 'Cancelled' && order.status !== 'Uploaded' && routedPrinter && (
-                              <span className="bg-emerald-50 text-emerald-700 text-[10px] uppercase font-bold px-2 py-0.5 rounded-full flex items-center gap-1">
+                              <span className="bg-emerald-50 text-emerald-700 text-[10px] uppercase font-bold px-2.5 py-0.5 rounded-full border border-emerald-200 flex items-center gap-1">
                                 <Printer className="w-3 h-3" /> Routed to: {routedPrinter.name}
                               </span>
                             )}
@@ -1413,16 +1413,16 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                           <div className="space-y-2 mb-3">
                             {order.files ? (
                               order.files.map((f, i) => (
-                                <div key={i} className="flex flex-col gap-2 text-sm bg-slate-50 border border-slate-100 p-3 rounded-lg">
+                                <div key={i} className="flex flex-col gap-2 text-sm bg-slate-50/70 border border-slate-200/70 p-3 rounded-xl">
                                   <div className="flex items-center justify-between">
                                     <div className="flex items-center gap-2">
                                       <FileText className="w-4 h-4 text-slate-400" />
-                                      <span className="font-medium text-slate-700 truncate max-w-[150px] sm:max-w-xs">{f.fileName}</span>
+                                      <span className="font-medium text-slate-800 truncate max-w-[150px] sm:max-w-xs">{f.fileName}</span>
                                     </div>
                                     
                                     <div className="flex gap-2">
                                       {f.fileUrl ? (
-                                        <a href={f.fileUrl} target="_blank" rel="noreferrer" className="text-xs flex items-center gap-1 text-indigo-600 hover:text-indigo-800 font-semibold bg-indigo-50 px-2 py-1 rounded">
+                                        <a href={f.fileUrl} target="_blank" rel="noreferrer" className="text-xs flex items-center gap-1 text-indigo-600 hover:text-indigo-800 font-semibold bg-indigo-50/80 px-2.5 py-1 rounded-lg border border-indigo-100">
                                           <Eye className="w-3 h-3" /> Preview
                                         </a>
                                       ) : (
@@ -1431,26 +1431,26 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                                     </div>
                                   </div>
                                   {f.settings && (
-                                    <div className="flex flex-wrap gap-x-4 gap-y-1 mt-1 text-[11px] text-slate-500">
+                                    <div className="flex flex-wrap gap-x-4 gap-y-1 mt-1 text-[11px] text-slate-500 font-medium">
                                       <span>{f.settings.color}</span>
                                       <span>{f.settings.paperSize} ({f.settings.paperType})</span>
                                       <span>{f.settings.orientation}</span>
                                       <span>Sides: {f.settings.sides}</span>
                                       <span>Copies: {f.settings.copies}</span>
                                       <span>Pages: {f.settings.pages}</span>
-                                      {f.price !== undefined && <span>₹{f.price.toFixed(2)}</span>}
+                                      {f.price !== undefined && <span className="font-bold text-slate-700">₹{f.price.toFixed(2)}</span>}
                                     </div>
                                   )}
                                 </div>
                               ))
                             ) : (
-                              <div className="flex items-center justify-between text-sm bg-slate-50 border border-slate-100 p-2 rounded-lg">
+                              <div className="flex items-center justify-between text-sm bg-slate-50/70 border border-slate-200/70 p-2.5 rounded-xl">
                                 <div className="flex items-center gap-2">
                                   <FileText className="w-4 h-4 text-slate-400" />
-                                  <span className="font-medium text-slate-700 truncate max-w-[150px] sm:max-w-xs">{(order as any).fileName || 'Untitled Document'}</span>
+                                  <span className="font-medium text-slate-800 truncate max-w-[150px] sm:max-w-xs">{(order as any).fileName || 'Untitled Document'}</span>
                                 </div>
                                 {(order as any).fileUrl ? (
-                                  <a href={(order as any).fileUrl} target="_blank" rel="noreferrer" className="text-xs flex items-center gap-1 text-indigo-600 hover:text-indigo-800 font-semibold bg-indigo-50 px-2 py-1 rounded">
+                                  <a href={(order as any).fileUrl} target="_blank" rel="noreferrer" className="text-xs flex items-center gap-1 text-indigo-600 hover:text-indigo-800 font-semibold bg-indigo-50/80 px-2.5 py-1 rounded-lg border border-indigo-100">
                                     <Eye className="w-3 h-3" /> Preview
                                   </a>
                                 ) : (
@@ -1459,7 +1459,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                               </div>
                             )}
                           </div>
-                          <div className="inline-flex flex-wrap gap-3 text-xs bg-slate-50 px-3 py-2 rounded-lg border border-slate-100">
+                          <div className="inline-flex flex-wrap gap-3 text-xs bg-slate-50/80 px-3 py-2 rounded-xl border border-slate-200/70">
                             {!order.files?.[0]?.settings && (
                               <>
                                 <span><strong className="text-slate-500 font-normal">Color:</strong> {order.settings?.color}</span>
@@ -1467,21 +1467,21 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                                 <span><strong className="text-slate-500 font-normal">Copies:</strong> {order.settings?.copies}</span>
                               </>
                             )}
-                            <span><strong className="text-slate-500 font-normal">Total:</strong> ₹{order.price.toFixed(2)}</span>
+                            <span><strong className="text-slate-500 font-normal">Total:</strong> <strong className="text-slate-900 font-black">₹{order.price.toFixed(2)}</strong></span>
                           </div>
                         </div>
                         
                         <div className="flex flex-wrap md:flex-col gap-2 shrink-0">
                           <Link 
                             to={`/order/${order.id}/cover`}
-                            className="border border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700 px-3 py-1.5 rounded-lg font-semibold text-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                            className="border border-slate-200 hover:border-slate-300 hover:bg-slate-50 text-slate-700 px-3 py-1.5 rounded-xl font-semibold text-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
                           >
                             View Cover Slip
                           </Link>
                           <button 
                             onClick={() => compilePrintJob(order)}
                             disabled={compilingOrderId === order.id}
-                            className="border border-indigo-200 hover:border-indigo-300 bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-3 py-1.5 rounded-lg font-bold text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer disabled:opacity-50"
+                            className="border border-indigo-200 hover:border-indigo-300 bg-indigo-50/80 hover:bg-indigo-100 text-indigo-700 px-3 py-1.5 rounded-xl font-bold text-xs flex items-center justify-center gap-1.5 transition-all cursor-pointer disabled:opacity-50"
                           >
                             {compilingOrderId === order.id ? (
                               <Loader2 className="w-3.5 h-3.5 animate-spin" />
@@ -1491,27 +1491,27 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                             Compile Print Job
                           </button>
                           {order.status === 'Uploaded' && (
-                            <button onClick={() => updateStatus(order.id!, 'Payment Complete')} className="bg-blue-600 hover:bg-blue-500 text-white px-3 py-1.5 rounded-lg font-medium text-xs flex items-center justify-center gap-1.5 transition-colors">
+                            <button onClick={() => updateStatus(order.id!, 'Payment Complete')} className="bg-blue-600 hover:bg-blue-500 text-white px-3 py-1.5 rounded-xl font-medium text-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer shadow-xs">
                               <Check className="w-3.5 h-3.5" /> Mark Paid
                             </button>
                           )}
                           {(order.status === 'Payment Complete' || order.status === 'Waiting') && (
-                            <button onClick={() => updateStatus(order.id!, 'Printing Started')} className="bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1.5 rounded-lg font-medium text-xs flex items-center justify-center gap-1.5 transition-colors">
+                            <button onClick={() => updateStatus(order.id!, 'Printing Started')} className="bg-indigo-600 hover:bg-indigo-500 text-white px-3 py-1.5 rounded-xl font-medium text-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer shadow-xs">
                               <Printer className="w-3.5 h-3.5" /> Start Print
                             </button>
                           )}
                           {order.status === 'Printing Started' && (
                             <div className="flex flex-col gap-2">
-                              <button onClick={() => updateStatus(order.id!, 'Ready for Pickup')} className="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-lg font-medium text-xs flex items-center justify-center gap-1.5 transition-colors">
+                              <button onClick={() => updateStatus(order.id!, 'Ready for Pickup')} className="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-1.5 rounded-xl font-medium text-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer shadow-xs">
                                 <Check className="w-3.5 h-3.5" /> Finish Print
                               </button>
-                              <button onClick={() => toast.error('Printer error reported! Admin notified. Manual completion required.')} className="bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 px-3 py-1.5 rounded-lg font-medium text-[11px] flex items-center justify-center transition-colors">
+                              <button onClick={() => toast.error('Printer error reported! Admin notified. Manual completion required.')} className="bg-red-50 hover:bg-red-100 text-red-700 border border-red-200 px-3 py-1.5 rounded-xl font-medium text-[11px] flex items-center justify-center transition-colors cursor-pointer">
                                 Report Error
                               </button>
                             </div>
                           )}
                           {order.status === 'Ready for Pickup' && (
-                            <button onClick={() => updateStatus(order.id!, 'Completed')} className="bg-slate-800 hover:bg-slate-700 text-white px-3 py-1.5 rounded-lg font-medium text-xs flex items-center justify-center gap-1.5 transition-colors">
+                            <button onClick={() => updateStatus(order.id!, 'Completed')} className="bg-slate-900 hover:bg-slate-800 text-white px-3 py-1.5 rounded-xl font-medium text-xs flex items-center justify-center gap-1.5 transition-colors cursor-pointer shadow-xs">
                               <Check className="w-3.5 h-3.5" /> Handed Over
                             </button>
                           )}
@@ -1525,9 +1525,9 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
           )}
 
           {activeTab === 'companion' && (
-            <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm space-y-6">
+            <div className="bg-white rounded-3xl border border-slate-200/80 p-8 shadow-sm shadow-slate-100 space-y-6">
               <div className="flex items-center gap-3 border-b border-slate-100 pb-4">
-                <div className="w-12 h-12 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-600">
+                <div className="w-12 h-12 bg-indigo-50 border border-indigo-100 rounded-2xl flex items-center justify-center text-indigo-600">
                   <Laptop className="w-6 h-6" />
                 </div>
                 <div>
@@ -1537,10 +1537,10 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
               </div>
 
               {/* Live Connection Banner */}
-              <div className={`p-5 rounded-2xl border flex flex-wrap items-center justify-between gap-4 transition-all ${
+              <div className={`p-5 rounded-2xl border flex flex-wrap items-center justify-between gap-4 transition-all shadow-xs ${
                 isBridgeOnline 
-                  ? 'bg-emerald-50/80 border-emerald-200 text-emerald-950' 
-                  : 'bg-indigo-50/80 border-indigo-200 text-indigo-950'
+                  ? 'bg-emerald-50/80 border-emerald-200/90 text-emerald-950' 
+                  : 'bg-indigo-50/80 border-indigo-200/90 text-indigo-950'
               }`}>
                 <div className="flex items-center gap-3.5">
                   <div className={`p-3 rounded-xl ${isBridgeOnline ? 'bg-emerald-100 text-emerald-700' : 'bg-indigo-100 text-indigo-700'}`}>
@@ -1550,7 +1550,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                     <h3 className="font-extrabold text-sm flex items-center gap-2">
                       {isBridgeOnline ? 'Print Bridge Active & Listening' : 'Print Bridge Setup (Zero Configuration)'}
                       <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                        isBridgeOnline ? 'bg-emerald-200 text-emerald-800' : 'bg-indigo-200 text-indigo-800'
+                        isBridgeOnline ? 'bg-emerald-200 text-emerald-800 border border-emerald-300' : 'bg-indigo-200 text-indigo-800 border border-indigo-300'
                       }`}>
                         {isBridgeOnline ? 'Port 1337 Active' : 'Easy 30s Setup'}
                       </span>
@@ -1567,7 +1567,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                   <button
                     type="button"
                     onClick={() => setShowBridgeModal(true)}
-                    className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-4 py-2 rounded-xl text-xs transition shadow-sm cursor-pointer flex items-center gap-1.5"
+                    className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold px-4 py-2 rounded-xl text-xs transition shadow-sm shadow-indigo-150 cursor-pointer flex items-center gap-1.5 active:scale-[0.99]"
                   >
                     <Download className="w-3.5 h-3.5" />
                     <span>Visual Setup Assistant</span>
@@ -1585,7 +1585,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                           toast.error("Bridge communication error", { id: t });
                         }
                       }}
-                      className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2 rounded-xl text-xs transition shadow-sm cursor-pointer flex items-center gap-1.5"
+                      className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2 rounded-xl text-xs transition shadow-sm cursor-pointer flex items-center gap-1.5 active:scale-[0.99]"
                     >
                       <Printer className="w-3.5 h-3.5" />
                       <span>Print Test Page</span>
@@ -1605,7 +1605,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                   </ol>
 
                   {shop && (
-                    <div className="bg-slate-50 p-4 rounded-xl border border-slate-150 flex items-center justify-between">
+                    <div className="bg-slate-50/80 p-4 rounded-xl border border-slate-200/80 flex items-center justify-between">
                       <div>
                         <span className="block text-[9px] uppercase tracking-wider font-extrabold text-slate-400">YOUR PRE-CONFIGURED SHOP ID</span>
                         <code className="text-xs font-mono font-bold text-slate-700">{shop.id}</code>
@@ -1617,7 +1617,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                           navigator.clipboard.writeText(shop.id);
                           toast.success("Shop ID copied to clipboard!");
                         }}
-                        className="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-3 py-1.5 rounded-lg text-xs font-bold transition-colors cursor-pointer"
+                        className="bg-indigo-50 hover:bg-indigo-100 text-indigo-700 px-3 py-1.5 rounded-lg text-xs font-bold transition-colors cursor-pointer border border-indigo-150"
                       >
                         Copy ID
                       </button>
@@ -1625,14 +1625,14 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                   )}
                 </div>
 
-                <div className="space-y-4 bg-slate-50 p-5 rounded-2xl border border-slate-200">
+                <div className="space-y-4 bg-slate-50/80 p-5 rounded-2xl border border-slate-200/80">
                   <h3 className="text-sm font-bold text-slate-800">2. Pre-Configured Downloads</h3>
                   <div className="flex flex-col gap-3">
                     <a
                       id="download-windows-companion"
                       href={`/api/download/windows?shopId=${shop?.id || ''}`}
                       download={`PrintHub-PrintBridge-Windows-${shop?.id ? shop.id.slice(0, 6) : 'Setup'}.zip`}
-                      className="bg-indigo-600 hover:bg-indigo-700 text-white p-3.5 rounded-xl text-xs font-bold text-center transition flex items-center justify-center gap-2 shadow-sm cursor-pointer"
+                      className="bg-indigo-600 hover:bg-indigo-700 text-white p-3.5 rounded-xl text-xs font-bold text-center transition flex items-center justify-center gap-2 shadow-sm shadow-indigo-150 cursor-pointer active:scale-[0.99]"
                     >
                       <Download className="w-4 h-4" /> Download for Windows (Pre-Configured ZIP)
                     </a>
@@ -1640,7 +1640,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                       id="download-macos-companion"
                       href={`/api/download/macos?shopId=${shop?.id || ''}`}
                       download={`PrintHub-PrintBridge-macOS-${shop?.id ? shop.id.slice(0, 6) : 'Setup'}.zip`}
-                      className="bg-slate-800 hover:bg-slate-900 text-white p-3.5 rounded-xl text-xs font-bold text-center transition flex items-center justify-center gap-2 shadow-sm cursor-pointer"
+                      className="bg-slate-900 hover:bg-slate-800 text-white p-3.5 rounded-xl text-xs font-bold text-center transition flex items-center justify-center gap-2 shadow-sm cursor-pointer active:scale-[0.99]"
                     >
                       <Download className="w-4 h-4" /> Download for macOS (.zip)
                     </a>
@@ -1679,7 +1679,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                       type="button"
                       onClick={scanLocalPrintersDashboard}
                       disabled={isScanning}
-                      className="border border-slate-200 hover:bg-slate-50 text-slate-700 px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 disabled:opacity-50"
+                      className="border border-slate-200 hover:bg-slate-50 text-slate-700 px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 disabled:opacity-50 cursor-pointer"
                     >
                       <Scan className="w-3.5 h-3.5 animate-pulse" />
                       {isScanning ? 'Scanning...' : 'Scan Local Network'}
@@ -1688,7 +1688,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                       id="add-printer-companion"
                       type="button"
                       onClick={addPrinterDashboard}
-                      className="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5"
+                      className="bg-indigo-600 hover:bg-indigo-700 text-white px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 cursor-pointer shadow-xs shadow-indigo-150"
                     >
                       <Plus className="w-3.5 h-3.5" /> Add Printer
                     </button>
@@ -1702,7 +1702,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                 ) : (
                   <div className="grid gap-3">
                     {editPrinters.map((printer) => (
-                      <div key={printer.id} className="bg-slate-50 border border-slate-200 p-4 rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-4">
+                      <div key={printer.id} className="bg-slate-50/80 border border-slate-200/80 p-4 rounded-xl flex flex-col md:flex-row md:items-center justify-between gap-4 hover:border-slate-300 transition-all">
                         <div className="flex-1 space-y-1">
                           <input 
                             type="text" 
@@ -1725,7 +1725,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                                   }}
                                   className={`px-2 py-0.5 rounded text-[10px] font-semibold border ${
                                     isMapped 
-                                      ? 'bg-indigo-50 border-indigo-150 text-indigo-700' 
+                                      ? 'bg-indigo-50 border-indigo-150 text-indigo-700 font-bold' 
                                       : 'bg-white border-slate-200 text-slate-500 hover:bg-slate-50'
                                   }`}
                                 >
@@ -1740,14 +1740,14 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                           <button
                             type="button"
                             onClick={() => testPrintDashboard(printer.id)}
-                            className="px-2.5 py-1.5 border border-slate-200 hover:bg-white text-slate-700 font-bold text-xs rounded-lg flex items-center gap-1 shrink-0 bg-slate-50"
+                            className="px-2.5 py-1.5 border border-slate-200 hover:bg-white text-slate-700 font-bold text-xs rounded-lg flex items-center gap-1 shrink-0 bg-slate-50 cursor-pointer"
                           >
                             <Printer className="w-3 h-3" /> Test Print
                           </button>
                           <button
                             type="button"
                             onClick={() => removePrinterDashboard(printer.id)}
-                            className="p-1.5 hover:bg-red-50 text-red-600 hover:text-red-700 rounded-lg shrink-0 transition"
+                            className="p-1.5 hover:bg-red-50 text-red-600 hover:text-red-700 rounded-lg shrink-0 transition cursor-pointer"
                           >
                             <Trash2 className="w-4 h-4" />
                           </button>
@@ -1770,10 +1770,10 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
           )}
 
           {activeTab === 'settings' && (
-            <form onSubmit={saveSettings} className="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm space-y-8 animate-fade-in">
+            <form onSubmit={saveSettings} className="bg-white rounded-3xl border border-slate-200/80 p-8 shadow-sm shadow-slate-100 space-y-8 animate-fade-in">
               <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-indigo-50 rounded-2xl flex items-center justify-center text-indigo-600">
+                  <div className="w-12 h-12 bg-indigo-50 border border-indigo-100 rounded-2xl flex items-center justify-center text-indigo-600">
                     <Store className="w-6 h-6" />
                   </div>
                   <div>
@@ -1785,7 +1785,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                   id="save-shop-profile-top"
                   type="submit"
                   disabled={savingSettings}
-                  className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded-xl text-xs transition flex items-center gap-1.5 disabled:opacity-50 cursor-pointer"
+                  className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-4 rounded-xl text-xs transition flex items-center gap-1.5 disabled:opacity-50 cursor-pointer shadow-xs shadow-indigo-150 active:scale-[0.99]"
                 >
                   {savingSettings ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Check className="w-3.5 h-3.5" />}
                   Save Changes
@@ -1804,7 +1804,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                       required
                       value={editName}
                       onChange={(e) => setEditName(e.target.value)}
-                      className="w-full bg-slate-50 border border-slate-200 focus:bg-white focus:border-indigo-500 focus:outline-none rounded-xl px-4 py-2.5 text-xs font-medium text-slate-800"
+                      className="w-full bg-slate-50/80 border border-slate-200/90 focus:bg-white focus:border-indigo-600 focus:ring-2 focus:ring-indigo-500/20 focus:outline-none rounded-xl px-4 py-2.5 text-xs font-medium text-slate-800 transition-all"
                     />
                   </div>
 
@@ -1815,7 +1815,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                       rows={3}
                       value={editAddress}
                       onChange={(e) => setEditAddress(e.target.value)}
-                      className="w-full bg-slate-50 border border-slate-200 focus:bg-white focus:border-indigo-500 focus:outline-none rounded-xl px-4 py-2.5 text-xs font-medium text-slate-800 resize-none"
+                      className="w-full bg-slate-50/80 border border-slate-200/90 focus:bg-white focus:border-indigo-600 focus:ring-2 focus:ring-indigo-500/20 focus:outline-none rounded-xl px-4 py-2.5 text-xs font-medium text-slate-800 resize-none transition-all"
                     />
                   </div>
 
@@ -1826,7 +1826,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                       placeholder="https://maps.google.com/..."
                       value={editMapLink}
                       onChange={(e) => setEditMapLink(e.target.value)}
-                      className="w-full bg-slate-50 border border-slate-200 focus:bg-white focus:border-indigo-500 focus:outline-none rounded-xl px-4 py-2.5 text-xs font-medium text-slate-800"
+                      className="w-full bg-slate-50/80 border border-slate-200/90 focus:bg-white focus:border-indigo-600 focus:ring-2 focus:ring-indigo-500/20 focus:outline-none rounded-xl px-4 py-2.5 text-xs font-medium text-slate-800 transition-all"
                     />
                   </div>
 
@@ -1838,7 +1838,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                         required
                         value={editOpeningHours.open}
                         onChange={(e) => setEditOpeningHours({ ...editOpeningHours, open: e.target.value })}
-                        className="w-full bg-slate-50 border border-slate-200 focus:bg-white focus:border-indigo-500 focus:outline-none rounded-xl px-4 py-2.5 text-xs font-medium text-slate-800"
+                        className="w-full bg-slate-50/80 border border-slate-200/90 focus:bg-white focus:border-indigo-600 focus:ring-2 focus:ring-indigo-500/20 focus:outline-none rounded-xl px-4 py-2.5 text-xs font-medium text-slate-800 transition-all"
                       />
                     </div>
                     <div className="space-y-1">
@@ -1848,7 +1848,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                         required
                         value={editOpeningHours.close}
                         onChange={(e) => setEditOpeningHours({ ...editOpeningHours, close: e.target.value })}
-                        className="w-full bg-slate-50 border border-slate-200 focus:bg-white focus:border-indigo-500 focus:outline-none rounded-xl px-4 py-2.5 text-xs font-medium text-slate-800"
+                        className="w-full bg-slate-50/80 border border-slate-200/90 focus:bg-white focus:border-indigo-600 focus:ring-2 focus:ring-indigo-500/20 focus:outline-none rounded-xl px-4 py-2.5 text-xs font-medium text-slate-800 transition-all"
                       />
                     </div>
                   </div>
@@ -1867,7 +1867,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                                 prev.includes(day) ? prev.filter(d => d !== day) : [...prev, day]
                               );
                             }}
-                            className={`px-2.5 py-1.5 rounded-lg text-[11px] font-bold transition border ${
+                            className={`px-2.5 py-1.5 rounded-lg text-[11px] font-bold transition border cursor-pointer ${
                               isWorking 
                                 ? 'bg-indigo-50 border-indigo-200 text-indigo-700' 
                                 : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100'
@@ -1889,8 +1889,8 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                     
                     <div className="space-y-4">
                       {/* Logo Field */}
-                      <div className="flex items-center gap-4 bg-slate-50 p-4 rounded-2xl border border-slate-150">
-                        <div className="w-14 h-14 rounded-full border border-slate-200 bg-white flex items-center justify-center overflow-hidden shrink-0">
+                      <div className="flex items-center gap-4 bg-slate-50/80 p-4 rounded-2xl border border-slate-200/80">
+                        <div className="w-14 h-14 rounded-full border border-slate-200 bg-white flex items-center justify-center overflow-hidden shrink-0 shadow-xs">
                           {editLogo ? (
                             <img src={editLogo} alt="Logo Preview" referrerPolicy="no-referrer" className="w-full h-full object-cover" />
                           ) : (
@@ -1910,7 +1910,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                           <button
                             type="button"
                             onClick={() => fileInputRef.current?.click()}
-                            className="bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 font-bold px-3 py-1 rounded text-[11px] cursor-pointer"
+                            className="bg-white hover:bg-slate-100 border border-slate-200 text-slate-700 font-bold px-3 py-1 rounded-lg text-[11px] cursor-pointer"
                           >
                             Change Logo
                           </button>
@@ -1918,9 +1918,9 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                       </div>
 
                       {/* Cover Image Field */}
-                      <div className="flex flex-col gap-2.5 bg-slate-50 p-4 rounded-2xl border border-slate-150">
+                      <div className="flex flex-col gap-2.5 bg-slate-50/80 p-4 rounded-2xl border border-slate-200/80">
                         <span className="text-xs font-bold text-slate-700 block">Cover / Shop Banner</span>
-                        <div className="w-full h-24 rounded-xl border border-slate-200 bg-white flex items-center justify-center overflow-hidden relative">
+                        <div className="w-full h-24 rounded-xl border border-slate-200 bg-white flex items-center justify-center overflow-hidden relative shadow-xs">
                           {editCover ? (
                             <img src={editCover} alt="Cover Preview" referrerPolicy="no-referrer" className="w-full h-full object-cover" />
                           ) : (
@@ -1966,7 +1966,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                                     prev.includes(svc) ? prev.filter(s => s !== svc) : [...prev, svc]
                                   );
                                 }}
-                                className={`px-2.5 py-1.5 rounded-lg text-[11px] font-semibold border transition ${
+                                className={`px-2.5 py-1.5 rounded-lg text-[11px] font-semibold border transition cursor-pointer ${
                                   selected 
                                     ? 'bg-indigo-50 border-indigo-200 text-indigo-700 font-bold' 
                                     : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
@@ -1993,7 +1993,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                                     prev.includes(size) ? prev.filter(s => s !== size) : [...prev, size]
                                   );
                                 }}
-                                className={`px-2.5 py-1.5 rounded-lg text-[11px] font-semibold border transition ${
+                                className={`px-2.5 py-1.5 rounded-lg text-[11px] font-semibold border transition cursor-pointer ${
                                   selected 
                                     ? 'bg-indigo-50 border-indigo-200 text-indigo-700 font-bold' 
                                     : 'bg-white border-slate-200 text-slate-600 hover:bg-slate-50'
@@ -2037,7 +2037,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                       toast.success("Form reset to current values.");
                     }
                   }}
-                  className="px-4 py-2.5 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-bold transition"
+                  className="px-4 py-2.5 rounded-xl border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-bold transition cursor-pointer"
                 >
                   Reset Form
                 </button>
@@ -2045,7 +2045,7 @@ export function ShopDashboard({ user, authLoading }: { user: User | null; authLo
                   id="save-shop-profile"
                   type="submit"
                   disabled={savingSettings}
-                  className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-6 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-md shadow-indigo-200 disabled:opacity-50 cursor-pointer"
+                  className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 px-6 rounded-xl text-xs transition flex items-center justify-center gap-1.5 shadow-md shadow-indigo-150 active:scale-[0.99] disabled:opacity-50 cursor-pointer"
                 >
                   {savingSettings ? (
                     <>

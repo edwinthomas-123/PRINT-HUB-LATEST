@@ -73,33 +73,34 @@ export default function App() {
 
   return (
     <Router>
-      <Toaster position="top-right" />
-      <div className="min-h-screen bg-slate-50 flex flex-col font-sans text-slate-900">
-        <header className="bg-white border-b border-slate-200 sticky top-0 z-50">
-          <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+      <Toaster position="top-right" toastOptions={{ className: 'text-sm font-medium shadow-lg rounded-xl border border-slate-100' }} />
+      <div className="min-h-screen bg-slate-50/60 flex flex-col font-sans text-slate-900 antialiased selection:bg-indigo-500/20 selection:text-indigo-950">
+        <header className="bg-white/95 backdrop-blur-md border-b border-slate-200/80 sticky top-0 z-50 shadow-xs">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
             <div className="flex items-center gap-8">
-              <Link to="/" className="text-xl font-bold tracking-tight text-indigo-600 flex items-center gap-2">
-                <span className="bg-indigo-600 text-white p-1.5 rounded-lg text-sm font-black">PH</span> PrintHub
+              <Link to="/" className="group text-xl font-bold tracking-tight text-slate-900 flex items-center gap-2.5 transition">
+                <span className="bg-gradient-to-br from-indigo-600 to-indigo-700 text-white p-1.5 px-2 rounded-xl text-xs font-black shadow-sm ring-1 ring-indigo-500/30 group-hover:scale-105 transition-transform">PH</span>
+                <span className="group-hover:text-indigo-600 transition-colors">PrintHub</span>
               </Link>
-              <nav className="hidden md:flex items-center gap-6">
-                <Link to="/tools" className="text-sm font-medium text-slate-600 hover:text-indigo-600">PDF Tools</Link>
-                <Link to="/pricing" className="text-sm font-medium text-slate-600 hover:text-indigo-600">Partner Plans</Link>
+              <nav className="hidden md:flex items-center gap-2">
+                <Link to="/tools" className="text-sm font-semibold text-slate-600 hover:text-indigo-600 px-3 py-1.5 rounded-lg hover:bg-slate-100/80 transition-all duration-150">PDF Tools</Link>
+                <Link to="/pricing" className="text-sm font-semibold text-slate-600 hover:text-indigo-600 px-3 py-1.5 rounded-lg hover:bg-slate-100/80 transition-all duration-150">Partner Plans</Link>
               </nav>
             </div>
-            <nav className="flex items-center gap-3">
+            <nav className="flex items-center gap-2.5">
               <LanguageSwitcher />
-              <Link to="/tools" className="md:hidden text-sm font-medium text-slate-600 hover:text-indigo-600">Tools</Link>
+              <Link to="/tools" className="md:hidden text-xs font-semibold text-slate-600 hover:text-indigo-600 px-2 py-1 rounded-md hover:bg-slate-100 transition">Tools</Link>
               {user ? (
                 <div className="flex items-center gap-2">
                   <Link 
                     to="/dashboard" 
-                    className="text-sm font-semibold bg-indigo-50 border border-indigo-200 text-indigo-700 px-3.5 py-1.5 rounded-lg hover:bg-indigo-100 transition"
+                    className="text-xs sm:text-sm font-semibold bg-indigo-50/80 hover:bg-indigo-100/90 border border-indigo-200/70 text-indigo-700 px-3.5 py-1.5 rounded-xl hover:shadow-xs transition-all duration-150"
                   >
                     Partner Dashboard
                   </Link>
                   <button 
                     onClick={() => logOut()}
-                    className="text-sm font-medium text-slate-500 hover:text-slate-800 px-2 py-1.5 transition cursor-pointer"
+                    className="text-xs sm:text-sm font-medium text-slate-500 hover:text-slate-800 px-2.5 py-1.5 rounded-lg hover:bg-slate-100 transition-all duration-150 cursor-pointer"
                   >
                     Sign Out
                   </button>
@@ -108,7 +109,7 @@ export default function App() {
                 <button 
                   onClick={handlePartnerLogin}
                   disabled={signingIn}
-                  className="text-sm font-bold bg-indigo-600 text-white px-4 py-2 rounded-xl hover:bg-indigo-500 transition shadow-sm shadow-indigo-200 cursor-pointer flex items-center gap-1.5 disabled:opacity-60"
+                  className="text-xs sm:text-sm font-bold bg-indigo-600 text-white px-4 py-2 rounded-xl hover:bg-indigo-700 active:scale-[0.98] transition-all duration-150 shadow-sm shadow-indigo-600/20 hover:shadow-md hover:shadow-indigo-600/25 cursor-pointer flex items-center gap-1.5 disabled:opacity-60"
                 >
                   {signingIn ? (
                     <>
@@ -124,7 +125,7 @@ export default function App() {
           </div>
         </header>
 
-        <main className="flex-1 w-full max-w-5xl mx-auto px-4 py-8 relative z-0">
+        <main className="flex-1 w-full max-w-5xl mx-auto px-4 sm:px-6 py-8 relative z-0">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/tools" element={<Tools />} />
@@ -150,21 +151,21 @@ export default function App() {
             <Route path="/faq" element={<FAQ />} />
           </Routes>
         </main>
-        <footer className="bg-white border-t border-slate-200 mt-auto py-6">
-          <div className="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-slate-500 text-sm">
+        <footer className="bg-white border-t border-slate-200/80 mt-auto py-8">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+            <p className="text-slate-500 text-xs sm:text-sm">
               &copy; {new Date().getFullYear()} Print Hub. All rights reserved.
             </p>
-            <div className="flex items-center gap-4">
-              <Link to="/pricing" className="text-slate-500 hover:text-indigo-600 text-sm font-semibold">Pricing</Link>
-              <Link to="/privacy" className="text-slate-500 hover:text-indigo-600 text-sm">Privacy Policy</Link>
-              <Link to="/about" className="text-slate-500 hover:text-indigo-600 text-sm">About Us</Link>
-              <Link to="/contact" className="text-slate-500 hover:text-indigo-600 text-sm">Contact</Link>
-              <Link to="/faq" className="text-slate-500 hover:text-indigo-600 text-sm">FAQ</Link>
-              <Link to="/terms" className="text-slate-500 hover:text-indigo-600 text-sm">Terms & Conditions</Link>
-              <Link to="/cookies" className="text-slate-500 hover:text-indigo-600 text-sm">Cookie Policy</Link>
-              <Link to="/aup" className="text-slate-500 hover:text-indigo-600 text-sm">Acceptable Use</Link>
-              <Link to="/disclaimer" className="text-slate-500 hover:text-indigo-600 text-sm">Disclaimer</Link>
+            <div className="flex flex-wrap justify-center items-center gap-x-5 gap-y-2">
+              <Link to="/pricing" className="text-slate-600 hover:text-indigo-600 text-xs sm:text-sm font-semibold transition-colors">Pricing</Link>
+              <Link to="/privacy" className="text-slate-500 hover:text-indigo-600 text-xs sm:text-sm transition-colors">Privacy Policy</Link>
+              <Link to="/about" className="text-slate-500 hover:text-indigo-600 text-xs sm:text-sm transition-colors">About Us</Link>
+              <Link to="/contact" className="text-slate-500 hover:text-indigo-600 text-xs sm:text-sm transition-colors">Contact</Link>
+              <Link to="/faq" className="text-slate-500 hover:text-indigo-600 text-xs sm:text-sm transition-colors">FAQ</Link>
+              <Link to="/terms" className="text-slate-500 hover:text-indigo-600 text-xs sm:text-sm transition-colors">Terms & Conditions</Link>
+              <Link to="/cookies" className="text-slate-500 hover:text-indigo-600 text-xs sm:text-sm transition-colors">Cookie Policy</Link>
+              <Link to="/aup" className="text-slate-500 hover:text-indigo-600 text-xs sm:text-sm transition-colors">Acceptable Use</Link>
+              <Link to="/disclaimer" className="text-slate-500 hover:text-indigo-600 text-xs sm:text-sm transition-colors">Disclaimer</Link>
             </div>
           </div>
         </footer>
